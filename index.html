@@ -1,0 +1,1125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Building More, Building Fairly? Housing Justice in Canada | ESP Course, L3 Geography &amp; Urban Planning</title>
+<meta name="description" content="A two-hour English for Specific Purposes course for third-year Geography and Urban Planning students, based on Prentiss Dantzler's article on Build Canada Homes and anti-Black racism.">
+<style>
+:root{
+  --navy:#1c2a43;--navy2:#2c3e5f;--navy-l:#e6e9ef;
+  --cream:#f5efe3;--paper:#fffcf6;--paper2:#faf5ea;
+  --terra:#ad5236;--terra-d:#8e4029;--terra-l:#f3e0d6;
+  --grey:#62666d;--grey-l:#e9e5dc;--line:#dcd2bf;--ink:#1e2227;
+  --ok:#2d6a4d;--ok-l:#e2efe6;--bad:#9d3f29;--bad-l:#f6e2da;--rev:#3a5683;--rev-l:#e4eaf4;
+  --serif:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,"Times New Roman",serif;
+  --sans:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --r:6px;--hh:60px;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--cream);color:var(--ink);font:17px/1.62 var(--sans)}
+a{color:var(--terra-d)}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,summary:focus-visible{outline:3px solid #d8893f;outline-offset:2px}
+h1,h2,h3,h4{font-family:var(--serif);color:var(--navy);line-height:1.25;font-weight:600}
+h1{font-size:2.1rem;margin:.2em 0 .4em}
+h2{font-size:1.55rem;margin:2.2rem 0 .7rem;padding-top:.6rem;border-top:1px solid var(--line)}
+h3{font-size:1.22rem;margin:.2rem 0 .5rem}
+h4{font-size:1.05rem;margin:1.2rem 0 .4rem}
+p{margin:.55em 0}
+small,.muted{color:var(--grey)}
+.skip{position:absolute;left:-999px;top:0;background:#fff;padding:.5rem 1rem;z-index:100}
+.skip:focus{left:1rem}
+
+/* Top bar */
+.topbar{position:fixed;inset:0 0 auto 0;height:var(--hh);background:var(--navy);color:#fff;display:flex;align-items:center;gap:.8rem;padding:0 1rem;z-index:40;box-shadow:0 1px 0 rgba(0,0,0,.2)}
+.topbar .brand{font-family:var(--serif);font-size:1.05rem;line-height:1.2;flex:1;min-width:0}
+.brand b{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.brand span{font-family:var(--sans);font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;color:#c9d1df}
+.tb-btn{background:transparent;border:1px solid rgba(255,255,255,.35);color:#fff;border-radius:var(--r);padding:.42rem .75rem;font:inherit;font-size:.86rem;cursor:pointer;white-space:nowrap}
+.tb-btn:hover{background:rgba(255,255,255,.1)}
+#menuBtn{display:none}
+.tb-prog{display:flex;align-items:center;gap:.5rem;font-size:.8rem;color:#d6dbe5;min-width:150px}
+.bar{flex:1;height:6px;background:rgba(255,255,255,.18);border-radius:3px;overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:#e0a27f;transition:width .3s}
+
+/* Layout */
+.layout{display:flex;padding-top:var(--hh);min-height:100vh}
+.side{width:300px;flex:none;background:var(--paper2);border-right:1px solid var(--line);position:sticky;top:var(--hh);height:calc(100vh - var(--hh));overflow-y:auto;padding:1.1rem .8rem 2rem}
+.side h2{font-size:.78rem;font-family:var(--sans);letter-spacing:.08em;text-transform:uppercase;color:var(--grey);border:0;margin:0 .5rem .6rem;padding:0}
+.nav{list-style:none;margin:0;padding:0}
+.nav a{display:grid;grid-template-columns:1.9rem 1fr auto;gap:.3rem .5rem;align-items:start;padding:.55rem .55rem;border-radius:var(--r);text-decoration:none;color:var(--ink);font-size:.93rem;line-height:1.3}
+.nav a:hover{background:var(--grey-l)}
+.nav a.cur{background:var(--navy);color:#fff}
+.nav a.cur .nmeta{color:#c9d1df}
+.nnum{font-family:var(--serif);font-weight:600;font-size:1rem;color:var(--terra);text-align:center}
+.nav a.cur .nnum{color:#e9b597}
+.nmeta{grid-column:2;font-size:.76rem;color:var(--grey)}
+.nst{grid-row:1/3;grid-column:3;width:1.1rem;height:1.1rem;border-radius:50%;border:2px solid var(--line);margin-top:.15rem}
+.nst.started{border-color:var(--terra);background:linear-gradient(90deg,var(--terra) 50%,transparent 50%)}
+.nst.done{border-color:var(--ok);background:var(--ok);position:relative}
+.nst.done::after{content:"";position:absolute;left:.28rem;top:.08rem;width:.25rem;height:.5rem;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(45deg)}
+.side-foot{margin:1.4rem .5rem 0;padding-top:1rem;border-top:1px solid var(--line);font-size:.82rem;color:var(--grey)}
+.side-foot button{margin:.25rem .3rem .25rem 0}
+.reset-box{background:var(--bad-l);border:1px solid #e3b7a8;border-radius:var(--r);padding:.6rem .7rem;margin-top:.4rem;color:#5a2416}
+.reset-box p{margin:0 0 .5rem;font-size:.82rem;line-height:1.4}
+.side-foot button.danger{background:var(--bad);border-color:var(--bad);color:#fff}
+.store-warn{background:var(--bad-l);color:var(--bad);padding:.5rem .7rem;border-radius:var(--r);font-size:.82rem;margin:.6rem .5rem}
+
+main{flex:1;min-width:0;padding:2rem 2.2rem 4rem}
+.page{max-width:860px;margin:0 auto}
+
+/* Section header */
+.sec-h{background:var(--paper);border:1px solid var(--line);border-top:4px solid var(--terra);border-radius:var(--r);padding:1.4rem 1.6rem 1.2rem;margin-bottom:1.6rem}
+.kicker{font-size:.78rem;letter-spacing:.09em;text-transform:uppercase;color:var(--terra-d);font-weight:600}
+.sec-h .lead{font-family:var(--serif);font-size:1.12rem;color:#3a3f46}
+.sec-meta{display:flex;flex-wrap:wrap;gap:.5rem 1.2rem;font-size:.85rem;color:var(--grey);margin-top:.7rem}
+.sec-prog{display:flex;align-items:center;gap:.6rem;margin-top:.8rem;font-size:.82rem;color:var(--grey)}
+.sec-prog .bar{background:var(--grey-l);max-width:260px}
+.sec-prog .bar i{background:var(--terra)}
+.objs{margin:.8rem 0 0;padding-left:1.1rem;font-size:.92rem}
+
+/* Content blocks */
+.card{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:1.2rem 1.4rem;margin:1.2rem 0}
+.note{background:var(--navy-l);border-left:4px solid var(--navy2);padding:.9rem 1.1rem;border-radius:0 var(--r) var(--r) 0;margin:1rem 0}
+.question{background:var(--navy);color:#fff;border-radius:var(--r);padding:1.3rem 1.5rem;margin:1.3rem 0;font-family:var(--serif);font-size:1.25rem;line-height:1.4}
+.question small{display:block;font-family:var(--sans);font-size:.75rem;letter-spacing:.09em;text-transform:uppercase;color:#e3b296;margin-bottom:.35rem}
+.src{display:inline-block;font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;border-radius:3px;padding:.08rem .42rem;vertical-align:.12em;margin-right:.35rem;white-space:nowrap}
+.src.art{background:var(--terra-l);color:var(--terra-d)}
+.src.sup{background:var(--grey-l);color:#4b4f55}
+.src.fic{background:#e9e3f3;color:#4f3f73}
+.src.own{background:var(--ok-l);color:var(--ok)}
+blockquote{margin:1rem 0;padding:.3rem 0 .3rem 1rem;border-left:3px solid var(--terra);font-family:var(--serif);font-size:1.06rem;color:#353a40}
+table.t{width:100%;border-collapse:collapse;font-size:.92rem;margin:.8rem 0;background:var(--paper)}
+table.t th,table.t td{border:1px solid var(--line);padding:.5rem .6rem;text-align:left;vertical-align:top}
+table.t th{background:var(--paper2);font-weight:600;color:var(--navy)}
+.tw{overflow-x:auto}
+details.more{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);margin:1rem 0}
+details.more summary{cursor:pointer;padding:.7rem 1rem;font-weight:600;color:var(--navy);list-style:none}
+details.more summary::-webkit-details-marker{display:none}
+details.more summary::before{content:"+";display:inline-block;width:1.2rem;color:var(--terra);font-weight:700}
+details.more[open] summary::before{content:"−"}
+details.more>div{padding:0 1.1rem 1rem}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1rem}
+.chip{display:inline-block;background:var(--paper2);border:1px solid var(--line);border-radius:999px;padding:.12rem .6rem;margin:.18rem .15rem;font-size:.86rem}
+figure{margin:1.4rem 0;background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:1rem 1rem .7rem}
+figure svg{width:100%;height:auto;display:block}
+figcaption{font-size:.83rem;color:var(--grey);margin-top:.6rem;line-height:1.45}
+.lang{columns:2 260px;column-gap:1.4rem;font-size:.92rem}
+.lang h4{break-after:avoid;margin-top:.6rem}
+.lang ul{margin:.2rem 0 .8rem;padding-left:1.1rem;break-inside:avoid}
+
+/* Stat charts */
+.stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:.8rem;margin:.8rem 0}
+.tile{background:var(--paper2);border:1px solid var(--line);border-radius:var(--r);padding:.8rem .9rem}
+.tile b{display:block;font-family:var(--serif);font-size:1.8rem;color:var(--navy);line-height:1.1}
+.tile span{font-size:.82rem;color:var(--grey)}
+.hbar{margin:.7rem 0}
+.hbar .lbl{display:flex;justify-content:space-between;font-size:.88rem;margin-bottom:.2rem;gap:1rem}
+.hbar .track{height:22px;background:var(--grey-l);border-radius:3px;position:relative;overflow:hidden}
+.hbar .fill{position:absolute;left:0;top:0;bottom:0;background:var(--navy2)}
+.hbar .fill.t{background:var(--terra)}
+.hbar .range{position:absolute;top:0;bottom:0;background:repeating-linear-gradient(45deg,var(--terra) 0 6px,#c97a5f 6px 12px)}
+.axis{display:flex;justify-content:space-between;font-size:.72rem;color:var(--grey);margin-top:.15rem}
+
+/* Exercises */
+.ex{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:1.2rem 1.4rem 1.1rem;margin:1.5rem 0;box-shadow:0 1px 0 rgba(0,0,0,.03)}
+.ex-meta{display:flex;flex-wrap:wrap;gap:.4rem .7rem;align-items:center;font-size:.78rem;margin-bottom:.3rem}
+.ex-num{font-weight:700;color:var(--terra-d);letter-spacing:.04em}
+.tag{background:var(--navy-l);color:var(--navy2);border-radius:3px;padding:.05rem .45rem;font-weight:600}
+.time{color:var(--grey)}
+.done-flag{color:var(--ok);font-weight:700;margin-left:auto}
+.ex-intro{font-size:.95rem}
+.items{padding-left:1.4rem;margin:.8rem 0}
+.item{margin:0 0 1.05rem;padding-left:.2rem}
+.item .q{margin:.1rem 0 .4rem;font-weight:500}
+.opts{display:grid;gap:.35rem}
+.opt{display:flex;gap:.55rem;align-items:flex-start;padding:.42rem .6rem;border:1px solid var(--line);border-radius:var(--r);cursor:pointer;background:#fff;font-size:.95rem;line-height:1.4}
+.opt:hover{border-color:#bfb299}
+.opt input{margin-top:.22rem;flex:none;accent-color:var(--navy)}
+.tf-row{display:flex;gap:.5rem;flex-wrap:wrap}
+.tf-row .opt{flex:0 0 auto}
+.jus{width:100%;margin-top:.45rem;font:inherit;font-size:.9rem;padding:.45rem .6rem;border:1px solid var(--line);border-radius:var(--r);background:#fff;min-height:2.6rem;resize:vertical}
+.selrow{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:.4rem 1rem;align-items:center}
+select{font:inherit;font-size:.92rem;padding:.42rem .5rem;border:1px solid #c8bca6;border-radius:var(--r);background:#fff;width:100%;color:var(--ink)}
+.item.ok>.opts,.item.ok>.tf-row,.item.ok select{}
+.item.ok select,input.gap.ok{border-color:var(--ok);background:var(--ok-l)}
+.item.bad select,input.gap.bad{border-color:var(--bad);background:var(--bad-l)}
+.item.ok .q::after{content:"  ✓";color:var(--ok);font-weight:700}
+.item.bad .q::after{content:"  ✗";color:var(--bad);font-weight:700}
+.hint{display:none;font-size:.86rem;color:#5b4a2c;background:#f8efd9;border-radius:var(--r);padding:.35rem .6rem;margin-top:.4rem}
+.hints-on .hint{display:block}
+.fb{display:none;font-size:.88rem;border-radius:var(--r);padding:.5rem .7rem;margin-top:.45rem;line-height:1.5}
+.fb.show{display:block}
+.fb.ok{background:var(--ok-l);color:#1f4a35}
+.fb.bad{background:var(--bad-l);color:#6e2a1a}
+.fb.rev{background:var(--rev-l);color:#253a5c}
+.bank{display:flex;flex-wrap:wrap;gap:.35rem;margin:.6rem 0 .9rem;padding:.6rem .7rem;background:var(--paper2);border:1px dashed var(--line);border-radius:var(--r)}
+.bank b{font-size:.8rem;color:var(--grey);width:100%;font-weight:600;text-transform:uppercase;letter-spacing:.06em}
+.gaptext{line-height:2.25;font-family:var(--serif);font-size:1.06rem}
+.gapw{white-space:nowrap}
+input.gap{font:inherit;font-family:var(--sans);font-size:.92rem;width:9.5rem;max-width:60vw;padding:.12rem .4rem;border:0;border-bottom:2px solid #b5a789;background:#fff;border-radius:3px 3px 0 0}
+.gapn{font-size:.68rem;color:var(--grey);vertical-align:super;margin-left:.1rem;font-family:var(--sans)}
+.gapfb{padding-left:0;list-style:none;margin:.6rem 0}
+.gapfb .item{display:none;margin-bottom:.3rem}
+.gapfb .item.vis,.hints-on .gapfb .item{display:block}
+.gl{font-size:.8rem;font-weight:700;color:var(--grey)}
+.ex-ctrl{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.9rem;align-items:center}
+.btn,.ex-ctrl button,.side-foot button,.navbtns a,.navbtns button{font:inherit;font-size:.88rem;border:1px solid #bfb39b;background:#fff;color:var(--navy);border-radius:var(--r);padding:.45rem .85rem;cursor:pointer;text-decoration:none;display:inline-block;line-height:1.3}
+.btn:hover,.ex-ctrl button:hover:not(:disabled){background:var(--paper2)}
+.ex-ctrl button.primary,.btn.primary{background:var(--navy);color:#fff;border-color:var(--navy)}
+.ex-ctrl button.primary:hover:not(:disabled),.btn.primary:hover{background:var(--navy2)}
+.ex-ctrl button:disabled{opacity:.5;cursor:not-allowed}
+.ex-result{font-size:.9rem;color:var(--navy);margin-top:.6rem;min-height:1.2em}
+.ex-result.warn{color:var(--bad)}
+.field{margin:.8rem 0}
+.field label{display:block;font-weight:600;color:var(--navy);font-size:.95rem}
+.wg{font-weight:400;color:var(--grey);font-size:.85rem}
+.fhelp{font-size:.86rem;color:var(--grey);margin:.15rem 0 .35rem}
+textarea{width:100%;font:inherit;font-size:.95rem;line-height:1.55;padding:.6rem .75rem;border:1px solid #c8bca6;border-radius:var(--r);background:#fff;resize:vertical;color:var(--ink)}
+.wc{font-size:.8rem;color:var(--grey)}
+.criteria,.model{margin-top:1rem;border-radius:var(--r);padding:1rem 1.2rem}
+.criteria{background:var(--paper2);border:1px solid var(--line)}
+.model{background:var(--rev-l);border:1px solid #c7d2e5}
+.model h4,.criteria h4{margin-top:0}
+.checks{list-style:none;padding:0;margin:.4rem 0}
+.checks li{margin:.3rem 0}
+.checks label{display:flex;gap:.55rem;align-items:flex-start;cursor:pointer;font-size:.93rem;line-height:1.4}
+.checks input{margin-top:.2rem;flex:none;accent-color:var(--ok)}
+.areas{background:var(--paper2);border:1px solid var(--line);border-radius:var(--r);padding:.7rem 1rem;margin:.8rem 0}
+.areas .checks{columns:2 220px}
+.memo-head{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.85rem;background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:.7rem .9rem;white-space:pre-wrap;line-height:1.5}
+
+/* Section footer nav */
+.navbtns{display:flex;justify-content:space-between;gap:1rem;margin-top:2.5rem;padding-top:1.2rem;border-top:1px solid var(--line);flex-wrap:wrap}
+.navbtns .primary{background:var(--terra);border-color:var(--terra);color:#fff}
+.navbtns .primary:hover{background:var(--terra-d)}
+
+/* Glossary drawer */
+.drawer{position:fixed;top:0;right:0;height:100%;width:min(440px,100%);background:var(--paper);z-index:60;box-shadow:-6px 0 24px rgba(0,0,0,.18);transform:translateX(105%);transition:transform .25s;display:flex;flex-direction:column}
+.drawer.open{transform:none}
+.drawer header{background:var(--navy);color:#fff;padding:1rem 1.1rem;display:flex;align-items:center;gap:.6rem}
+.drawer header h2{color:#fff;margin:0;border:0;padding:0;font-size:1.2rem;flex:1}
+.drawer .search{padding:.8rem 1.1rem;border-bottom:1px solid var(--line)}
+.drawer .search input{width:100%;font:inherit;padding:.5rem .7rem;border:1px solid #c8bca6;border-radius:var(--r)}
+.gloss{overflow-y:auto;padding:.4rem 1.1rem 2rem;flex:1}
+.gloss dl{margin:0}
+.gloss dt{font-family:var(--serif);font-weight:600;color:var(--navy);font-size:1.05rem;margin-top:1rem}
+.gloss dd{margin:.2rem 0 0;font-size:.92rem}
+.gloss dd .ctx{display:block;color:var(--grey);font-size:.85rem;margin-top:.2rem}
+.scrim{position:fixed;inset:0;background:rgba(20,26,38,.35);z-index:35;display:none}
+.scrim.on{display:block}
+
+/* Summary */
+.sum-total{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:.8rem;margin:1rem 0}
+
+/* Responsive */
+@media (max-width:960px){
+  #menuBtn{display:inline-block}
+  .side{position:fixed;left:0;top:var(--hh);z-index:50;transform:translateX(-105%);transition:transform .25s;box-shadow:6px 0 24px rgba(0,0,0,.15)}
+  .side.open{transform:none}
+  .tb-prog{display:none}
+  main{padding:1.3rem 1rem 3rem}
+}
+@media (max-width:620px){
+  body{font-size:16px}
+  h1{font-size:1.65rem}
+  .sec-h,.ex,.card{padding:1rem .95rem}
+  .selrow{grid-template-columns:1fr}
+  .items{padding-left:1.1rem}
+  .brand span{display:none}
+  .tb-btn{padding:.38rem .55rem;font-size:.8rem}
+  .question{font-size:1.1rem}
+  figure{overflow-x:auto}
+  figure svg{min-width:600px}
+}
+@media print{
+  .topbar,.side,.navbtns,.ex-ctrl,.drawer,.scrim,.skip{display:none!important}
+  .layout{padding:0}
+  main{padding:0}
+  body{background:#fff}
+  .ex,.card,.sec-h{break-inside:avoid;box-shadow:none}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <button class="tb-btn" id="menuBtn" aria-controls="side" aria-expanded="false">☰ Menu</button>
+  <div class="brand"><b>Building More, Building Fairly? Housing Justice in Canada</b><span>English for Geography &amp; Urban Planning · L3 · 2 hours</span></div>
+  <div class="tb-prog" aria-label="Overall progress"><div class="bar"><i id="topBar"></i></div><span id="topPct">0%</span></div>
+  <button class="tb-btn" id="glossBtn" aria-controls="glossary" aria-expanded="false">Glossary</button>
+</header>
+<div class="layout">
+  <nav class="side" id="side" aria-label="Course sections">
+    <h2>Course sections</h2>
+    <ol class="nav" id="nav"></ol>
+    <div id="storeWarn"></div>
+    <div class="side-foot">
+      <p>Your answers are saved automatically in this browser, on this device.</p>
+      <button id="dlBtn" type="button">Download my answers</button>
+      <button id="resetBtn" type="button">Reset course</button>
+      <div id="resetBox" class="reset-box" hidden role="alertdialog" aria-labelledby="resetMsg">
+        <p id="resetMsg"><strong>Delete all your answers and scores?</strong> This cannot be undone. Download your answers first if you want to keep them.</p>
+        <button id="resetYes" type="button" class="danger">Yes, reset everything</button>
+        <button id="resetNo" type="button">Cancel</button>
+      </div>
+    </div>
+  </nav>
+  <main id="main" tabindex="-1"><div class="page" id="page"></div></main>
+</div>
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="glossary" aria-label="Glossary" aria-hidden="true">
+  <header><h2>Glossary</h2><button class="tb-btn" id="glossClose" type="button">Close ✕</button></header>
+  <div class="search"><label for="glossQ" class="muted" style="font-size:.82rem">Search a term</label><input id="glossQ" type="search" placeholder="e.g. eviction, tenure, land trust" autocomplete="off"></div>
+  <div class="gloss" id="glossList"></div>
+</aside>
+
+<script>
+var ART='https://metropolitics.org/Build-Canada-Homes-Will-Fail-Without-Confronting-Anti-Black-Racism.html';
+var A='<span class="src art">From the article</span>';
+var SUP='<span class="src sup">Supplementary</span>';
+var FIC='<span class="src fic">Fictional scenario</span>';
+var OWN='<span class="src own">Your own knowledge</span>';
+var artLink='<a href="'+ART+'" target="_blank" rel="noopener">open the article in a new tab ↗</a>';
+
+var PARAMAP='<div class="tw"><table class="t"><thead><tr><th>Part of the article</th><th>Paragraph reference used in this course</th></tr></thead><tbody>'+
+'<tr><td>Title and standfirst (the short summary under the title)</td><td>Title / Standfirst</td></tr>'+
+'<tr><td>Introduction (before the first subheading)</td><td>¶1 “When the federal government launched…” · ¶2 “However, building more homes…”</td></tr>'+
+'<tr><td>Subheading <em>Equity isn’t optional</em></td><td>¶3 (CABR plan) · ¶4 (Toronto studies) · ¶5 (BCH’s core description)</td></tr>'+
+'<tr><td>Subheading <em>Ignoring race undermines progress</em></td><td>¶6 (Street Needs Assessment) · ¶7 (CABR as a road map) · ¶8 (Ontario’s Bill 60)</td></tr>'+
+'<tr><td>Subheading <em>Advancing racial justice through building</em></td><td>¶9 (introduction) · R1, R2, R3 (the three recommendations) · ¶10 (conclusion)</td></tr>'+
+'</tbody></table></div>';
+
+/* ---------- Visuals ---------- */
+var SVG_SUPPLY='<figure><svg viewBox="0 0 780 330" role="img" aria-labelledby="sv1t sv1d"><title id="sv1t">Supply versus access: a conceptual schema</title><desc id="sv1d">More housing supply leads to lower price pressure, but access then passes through four filters named in the article: rental discrimination, evictions and displacement, weaker tenant protection, and no data on who benefits. Some households gain access; others are filtered out.</desc>'+
+'<defs><marker id="ar1" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1c2a43"/></marker></defs>'+
+'<g font-family="system-ui,Segoe UI,Arial,sans-serif" font-size="13" fill="#1e2227">'+
+'<rect x="10" y="120" width="160" height="92" rx="6" fill="#1c2a43"/><text x="90" y="148" text-anchor="middle" fill="#fff" font-weight="700" font-size="14">More housing</text><text x="90" y="166" text-anchor="middle" fill="#fff" font-weight="700" font-size="14">supply</text><text x="90" y="187" text-anchor="middle" fill="#c9d1df" font-size="11.5">BCH: “build faster,</text><text x="90" y="202" text-anchor="middle" fill="#c9d1df" font-size="11.5">build smarter”</text>'+
+'<line x1="172" y1="166" x2="206" y2="166" stroke="#1c2a43" stroke-width="2" marker-end="url(#ar1)"/>'+
+'<rect x="210" y="120" width="160" height="92" rx="6" fill="#e6e9ef" stroke="#2c3e5f"/><text x="290" y="153" text-anchor="middle" font-weight="700" font-size="14">Lower price</text><text x="290" y="171" text-anchor="middle" font-weight="700" font-size="14">pressure</text><text x="290" y="194" text-anchor="middle" fill="#62666d" font-size="11.5">CMHC: restore affordability</text>'+
+'<line x1="372" y1="166" x2="404" y2="166" stroke="#1c2a43" stroke-width="2" marker-end="url(#ar1)"/>'+
+'<rect x="408" y="22" width="178" height="288" rx="6" fill="#f3e0d6" stroke="#ad5236"/><text x="497" y="46" text-anchor="middle" font-weight="700" fill="#8e4029">Access filters</text><text x="497" y="62" text-anchor="middle" font-size="11" fill="#8e4029">named in the article</text>'+
+'<g font-size="12"><rect x="420" y="76" width="154" height="46" rx="4" fill="#fff"/><text x="497" y="96" text-anchor="middle">Rental discrimination</text><text x="497" y="112" text-anchor="middle" font-size="10.5" fill="#62666d">Akaabre et al. 2025</text>'+
+'<rect x="420" y="130" width="154" height="46" rx="4" fill="#fff"/><text x="497" y="150" text-anchor="middle">Evictions &amp; displacement</text><text x="497" y="166" text-anchor="middle" font-size="10.5" fill="#62666d">Lewis et al. 2026</text>'+
+'<rect x="420" y="184" width="154" height="46" rx="4" fill="#fff"/><text x="497" y="204" text-anchor="middle">Weaker tenant protection</text><text x="497" y="220" text-anchor="middle" font-size="10.5" fill="#62666d">Ontario’s Bill 60</text>'+
+'<rect x="420" y="238" width="154" height="46" rx="4" fill="#fff"/><text x="497" y="258" text-anchor="middle">No data on who benefits</text><text x="497" y="274" text-anchor="middle" font-size="10.5" fill="#62666d">author’s critique of BCH</text></g>'+
+'<line x1="588" y1="120" x2="616" y2="96" stroke="#1c2a43" stroke-width="2" marker-end="url(#ar1)"/><line x1="588" y1="214" x2="616" y2="238" stroke="#ad5236" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#ar1)"/>'+
+'<rect x="620" y="52" width="152" height="84" rx="6" fill="#e2efe6" stroke="#2d6a4d"/><text x="696" y="86" text-anchor="middle" font-weight="700">Households who</text><text x="696" y="104" text-anchor="middle" font-weight="700">gain access</text>'+
+'<rect x="620" y="196" width="152" height="100" rx="6" fill="#f6e2da" stroke="#9d3f29"/><text x="696" y="224" text-anchor="middle" font-weight="700">Households</text><text x="696" y="242" text-anchor="middle" font-weight="700">filtered out</text><text x="696" y="264" text-anchor="middle" font-size="11">disproportionately Black</text><text x="696" y="279" text-anchor="middle" font-size="11">renters (author’s argument)</text>'+
+'</g></svg><figcaption>'+SUP+' Conceptual schema built from the article’s argument. It shows a line of reasoning, not measured data: the article gives no figures for these flows.</figcaption></figure>';
+
+var SVG_CYCLE='<figure><svg viewBox="0 0 760 420" role="img" aria-labelledby="sv4t sv4d"><title id="sv4t">How policies, displacement and spatial inequality reinforce each other</title><desc id="sv4d">A loop of five stages: supply-first policy with faster approvals and weaker tenant protection; redevelopment and corporate or financialized ownership; evictions and displacement concentrated in Black-majority neighbourhoods; spatial concentration of disadvantage; and no race-based data, so inequities stay invisible to policy makers, which feeds back into supply-first policy. In the centre: building inequity at scale.</desc>'+
+'<defs><marker id="ar4" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#ad5236"/></marker></defs>'+
+'<g font-family="system-ui,Segoe UI,Arial,sans-serif" font-size="12.5" fill="#1e2227" text-anchor="middle">'+
+'<circle cx="380" cy="212" r="88" fill="#1c2a43"/><text x="380" y="196" fill="#e9b597" font-size="11" letter-spacing="1">AUTHOR’S PHRASE</text><text x="380" y="218" fill="#fff" font-family="Georgia,serif" font-size="17">“Building inequity</text><text x="380" y="240" fill="#fff" font-family="Georgia,serif" font-size="17">at scale”</text>'+
+'<rect x="260" y="8" width="240" height="70" rx="6" fill="#fff" stroke="#2c3e5f"/><text x="380" y="34" font-weight="700">1 · Supply-first policy</text><text x="380" y="52" font-size="11.5">faster approvals, less “red tape”,</text><text x="380" y="67" font-size="11.5">weaker tenant protection (Bill 60)</text>'+
+'<rect x="520" y="120" width="230" height="70" rx="6" fill="#fff" stroke="#2c3e5f"/><text x="635" y="146" font-weight="700">2 · Redevelopment &amp;</text><text x="635" y="163" font-weight="700">market ownership</text><text x="635" y="180" font-size="11.5">corporate / financialized landlords</text>'+
+'<rect x="470" y="300" width="270" height="76" rx="6" fill="#f3e0d6" stroke="#ad5236"/><text x="605" y="326" font-weight="700">3 · Evictions &amp; displacement</text><text x="605" y="344" font-size="11.5">concentrated in Black-majority</text><text x="605" y="359" font-size="11.5">neighbourhoods (Lewis et al. 2026)</text>'+
+'<rect x="20" y="300" width="270" height="76" rx="6" fill="#fff" stroke="#2c3e5f"/><text x="155" y="326" font-weight="700">4 · Spatial concentration</text><text x="155" y="344" font-weight="700">of disadvantage</text><text x="155" y="362" font-size="11.5">homelessness, unsuitable housing</text>'+
+'<rect x="10" y="120" width="230" height="70" rx="6" fill="#fff" stroke="#2c3e5f"/><text x="125" y="146" font-weight="700">5 · No race-based data</text><text x="125" y="164" font-size="11.5">who benefits and who bears</text><text x="125" y="179" font-size="11.5">the costs stays invisible</text>'+
+'<g fill="none" stroke="#ad5236" stroke-width="2.2" marker-end="url(#ar4)"><path d="M500 50 Q600 60 625 116"/><path d="M640 194 Q650 250 625 296"/><path d="M466 345 L296 345"/><path d="M120 296 Q100 250 115 196"/><path d="M135 116 Q160 55 256 46"/></g>'+
+'</g></svg><figcaption>'+SUP+' Conceptual diagram linking the mechanisms the author describes. Each box refers to the article; the loop itself is an interpretation for discussion, not a model of measured data.</figcaption></figure>';
+
+var SVG_GOV='<figure><svg viewBox="0 0 780 380" role="img" aria-labelledby="sv3t sv3d"><title id="sv3t">Levels of governance in the article</title><desc id="sv3d">Three stacked levels. Federal: Government of Canada, Build Canada Homes and CMHC. Provincial: Province of Ontario, Bill 60 on evictions and tenant rules. Municipal: City of Toronto, CABR action plan, Street Needs Assessment and MURA programme. A joint federal-provincial programme, the Canada Ontario Housing Benefit, spans federal and provincial. Partners named by BCH: provinces, municipalities, Indigenous communities, non-profits, co-ops. An arrow shows the author’s recommendation: tie federal funding to anti-displacement and tenant-protection standards.</desc>'+
+'<defs><marker id="ar3" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#ad5236"/></marker></defs>'+
+'<g font-family="system-ui,Segoe UI,Arial,sans-serif" font-size="13" fill="#1e2227">'+
+'<rect x="10" y="10" width="520" height="100" rx="6" fill="#1c2a43"/><text x="26" y="36" fill="#e9b597" font-size="11" letter-spacing="1">FEDERAL</text><text x="26" y="58" fill="#fff" font-weight="700" font-size="15">Government of Canada</text><text x="26" y="80" fill="#fff">Build Canada Homes (agency, launched 2025) · funding</text><text x="26" y="98" fill="#c9d1df">CMHC (national housing agency: data, research)</text>'+
+'<rect x="10" y="135" width="520" height="90" rx="6" fill="#2c3e5f"/><text x="26" y="161" fill="#e9b597" font-size="11" letter-spacing="1">PROVINCIAL</text><text x="26" y="183" fill="#fff" font-weight="700" font-size="15">Province of Ontario</text><text x="26" y="205" fill="#fff">Bill 60, <tspan font-style="italic">Fighting Delays, Building Faster Act</tspan>: eviction &amp; tenant rules</text>'+
+'<rect x="10" y="250" width="520" height="115" rx="6" fill="#e6e9ef" stroke="#2c3e5f"/><text x="26" y="276" fill="#8e4029" font-size="11" letter-spacing="1">MUNICIPAL</text><text x="26" y="298" font-weight="700" font-size="15" fill="#1c2a43">City of Toronto</text><text x="26" y="320">Confronting Anti-Black Racism action plan (2017)</text><text x="26" y="338">Street Needs Assessment (homelessness count)</text><text x="26" y="356">Multi-Unit Residential Acquisition (MURA) programme</text>'+
+'<rect x="548" y="60" width="222" height="120" rx="6" fill="#fff" stroke="#62666d" stroke-dasharray="4 3"/><text x="659" y="86" text-anchor="middle" font-weight="700">Joint federal–provincial</text><text x="659" y="108" text-anchor="middle">Canada Ontario</text><text x="659" y="126" text-anchor="middle">Housing Benefit</text><text x="659" y="152" text-anchor="middle" font-size="11" fill="#62666d">(as its name indicates)</text>'+
+'<rect x="548" y="200" width="222" height="165" rx="6" fill="#faf5ea" stroke="#dcd2bf"/><text x="659" y="226" text-anchor="middle" font-weight="700">Partners named by BCH</text><text x="659" y="250" text-anchor="middle">provinces · municipalities</text><text x="659" y="270" text-anchor="middle">Indigenous communities</text><text x="659" y="290" text-anchor="middle">non-profits · co-ops</text><text x="659" y="318" text-anchor="middle" font-size="11" fill="#62666d">+ private builders</text><text x="659" y="334" text-anchor="middle" font-size="11" fill="#62666d">(financing; ¶5, ¶10)</text>'+
+'<path d="M500 112 L500 132" stroke="#ad5236" stroke-width="2.5" marker-end="url(#ar3)"/><path d="M500 227 L500 247" stroke="#ad5236" stroke-width="2.5" marker-end="url(#ar3)"/>'+
+'<text x="490" y="126" text-anchor="end" font-size="11" fill="#8e4029" font-weight="700">R2: funding tied to standards</text>'+
+'</g></svg><figcaption>'+SUP+' Placement of each institution follows the article and the authority that issues it (the names of BCH, Bill 60, CABR and MURA indicate their level; CMHC is the federal housing agency). The terracotta arrows show the lever the author recommends in R2.</figcaption></figure>';
+
+var STATS='<figure><h3 style="margin-top:0">The article’s key figures</h3>'+
+'<h4>Toronto Street Needs Assessment (as cited in ¶6)</h4>'+
+'<div class="hbar"><div class="lbl"><span>Black people among those experiencing homelessness</span><b>58%</b></div><div class="track"><div class="fill t" style="width:58%"></div></div></div>'+
+'<div class="hbar"><div class="lbl"><span>Black people in the city’s population</span><b>10%</b></div><div class="track"><div class="fill" style="width:10%"></div></div><div class="axis"><span>0%</span><span>25%</span><span>50%</span><span>75%</span><span>100%</span></div></div>'+
+'<h4>Annual housing starts in Canada (CMHC 2025, as cited in ¶1)</h4>'+
+'<div class="hbar"><div class="lbl"><span>Level cited as the starting point</span><b>250,000</b></div><div class="track"><div class="fill" style="width:50%"></div></div></div>'+
+'<div class="hbar"><div class="lbl"><span>Needed each year by 2035 to restore pre-pandemic affordability</span><b>430,000–480,000</b></div><div class="track"><div class="fill t" style="width:86%"></div><div class="range" style="left:86%;width:10%"></div></div><div class="axis"><span>0</span><span>125,000</span><span>250,000</span><span>375,000</span><span>500,000</span></div></div>'+
+'<h4>Toronto’s CABR action plan (¶3) and the eviction study (¶4)</h4>'+
+'<div class="stat-grid"><div class="tile"><b>2017</b><span>CABR adopted by city council</span></div><div class="tile"><b>22</b><span>recommendations</span></div><div class="tile"><b>80</b><span>actions</span></div><div class="tile"><b>5</b><span>priority areas</span></div><div class="tile"><b>2016–21</b><span>period of the eviction-filing study (Lewis et al. 2026)</span></div></div>'+
+'<figcaption>'+A+' Every number comes from the article. The bars are drawn to scale; the hatched segment shows the 430,000–480,000 range.</figcaption></figure>';
+
+/* ---------- Course ---------- */
+var COURSE={sections:[
+/* ===== 0 WELCOME ===== */
+{navTitle:'Welcome &amp; objectives',title:'Building More, Building Fairly? Housing Justice in Canada',
+lead:'A two-hour English for Specific Purposes course for third-year students in Geography and Urban Planning. You will read, analyse and use an academic opinion article on Canada’s new federal housing agency and anti-Black racism in the housing system.',
+blocks:[
+{type:'html',html:'<div class="question"><small>Central question of the course</small>Can increasing housing supply solve a housing crisis if existing inequalities remain unaddressed?</div>'+
+'<div class="card"><h3>The source article</h3><p><strong>Prentiss Dantzler</strong>, “‘Build Canada Homes’ Will Fail Without Confronting Anti-Black Racism”, <em>Metropolitics</em>, 28 April 2026.</p><p>You need the article throughout the course: '+artLink+' and keep it open next to this page. The website does not reproduce the article; it only quotes short phrases.</p><p>Paragraph references used in this course:</p>'+PARAMAP+'</div>'+
+'<h2>What you will be able to do</h2><div class="cols">'+
+'<div class="card"><h4 style="margin-top:0">Reading</h4><ul><li>Identify the author’s thesis and the structure of an opinion article</li><li>Locate evidence, statistics and sources</li><li>Distinguish facts, interpretations and recommendations</li></ul></div>'+
+'<div class="card"><h4 style="margin-top:0">English for Urban Planning</h4><ul><li>Use specialist vocabulary on housing, inequality and policy</li><li>Describe spatial and social phenomena in academic English</li><li>Formulate professional recommendations</li></ul></div>'+
+'<div class="card"><h4 style="margin-top:0">Critical thinking</h4><ul><li>Assess the link between housing supply and housing justice</li><li>Evaluate public policies and the role of each level of government</li><li>Anticipate unintended effects of redevelopment</li></ul></div>'+
+'<div class="card"><h4 style="margin-top:0">Professional communication</h4><ul><li>Defend and justify a planning recommendation with evidence</li><li>Express agreement, disagreement and reservations</li><li>Write a structured policy memo</li></ul></div></div>'+
+'<h2>Course plan · 120 minutes</h2><div class="tw"><table class="t"><thead><tr><th>Part</th><th>Section</th><th>Time</th><th>You will…</th></tr></thead><tbody>'+
+'<tr><td>1</td><td><a href="#s1">Understanding the housing crisis</a></td><td>15 min</td><td>activate your knowledge and frame the problem</td></tr>'+
+'<tr><td>2</td><td><a href="#s2">Reading comprehension</a></td><td>25 min</td><td>read the article and map its argument and evidence</td></tr>'+
+'<tr><td>3</td><td><a href="#s3">Specialist vocabulary</a></td><td>15 min</td><td>learn and use 17 key terms in context</td></tr>'+
+'<tr><td>4</td><td><a href="#s4">Geographical analysis</a></td><td>20 min</td><td>analyse spatial inequality, displacement and governance</td></tr>'+
+'<tr><td>5</td><td><a href="#s5">Public policy evaluation</a></td><td>20 min</td><td>compare Build Canada Homes and Toronto’s CABR</td></tr>'+
+'<tr><td>6</td><td><a href="#s6">Professional simulation</a></td><td>20 min</td><td>write an equitable housing memo as urban planners</td></tr>'+
+'<tr><td>7</td><td><a href="#s7">Final assessment</a></td><td>5 min</td><td>check your knowledge and reflect</td></tr>'+
+'</tbody></table></div>'+
+'<h2>How to work</h2><div class="card"><ol>'+
+'<li><strong>Attempt first.</strong> Answer every item, then click <em>Check answers</em>. You get immediate feedback and a hint for each wrong answer.</li>'+
+'<li><strong>Use hints before corrections.</strong> <em>Show hints</em> helps without giving the answer. <em>Reveal correction</em> unlocks only after your first check.</li>'+
+'<li><strong>Open tasks are self-assessed.</strong> The website does not grade your paragraphs. Write your answer, then use the criteria and the model answer to evaluate it.</li>'+
+'<li><strong>Your work is saved</strong> automatically in this browser, on this device. You can close the page and come back later. Download your answers at the end if your lecturer asks for them.</li>'+
+'<li>Open the <strong>Glossary</strong> (top right) at any time.</li></ol>'+
+'<p>Labels used in the course: '+A+' what the author argues or cites · '+SUP+' explanations added for teaching · '+FIC+' an invented case for the simulation · '+OWN+' where you bring your own geography knowledge.</p></div>'}
+]},
+
+/* ===== 1 CONTEXT ===== */
+{navTitle:'Understanding the housing crisis',mins:15,title:'Understanding the housing crisis',
+lead:'Before reading, frame the issue: what does “solving” a housing crisis mean, and for whom?',
+objectives:['Activate your knowledge of housing markets and spatial inequalities in English','Understand the context of Build Canada Homes','Distinguish housing supply, affordability and access'],
+blocks:[
+{type:'html',html:'<div class="card"><div class="ex-meta"><span class="tag">Context</span><span class="time">≈ 2 min</span></div>'+
+'<p>'+A+' In the fall of 2025 (the bibliography cites a Prime Minister’s news release of 14 September 2025), the Canadian federal government launched <strong>Build Canada Homes (BCH)</strong>. It promised to tackle the housing shortage by building faster and smarter and finally closing the supply gap.</p>'+
+'<p>'+A+' The article cites the <strong>Canada Mortgage and Housing Corporation (CMHC)</strong>: Canada must double new housing starts, from 250,000 to 430,000–480,000 units a year by 2035, to bring affordability back to pre-pandemic levels. Affordability has long been a concern in Vancouver and Toronto, but the sharpest decline came during the Covid period.</p>'+
+'<p>'+A+' The author’s point: building more homes without confronting the racialized dynamics that decide <em>who gets housed and who gets pushed out</em> will repeat old mistakes.</p>'+
+'<details class="more"><summary>Key background (supplementary)</summary><div><p>'+SUP+' <strong>Housing starts</strong> are the number of new dwellings on which construction begins in a given period. Planners and economists use them as a basic indicator of supply.</p><p>'+SUP+' <strong>CMHC</strong> is Canada’s national housing agency, a federal Crown corporation that publishes housing data and research.</p><p>'+SUP+' Canada is a federation of 10 provinces and 3 territories. Municipalities exist under provincial law, so housing policy is shared between federal, provincial and municipal governments. You will analyse this in Part 4.</p></div></details></div>'+
+'<div class="question"><small>Central question</small>Can increasing housing supply solve a housing crisis if existing inequalities remain unaddressed?</div>'},
+{type:'open',id:'p1a',num:'1.1',mins:4,title:'Warm-up: beyond supply',kind:'Brainstorm',
+prompt:'<p>'+OWN+' Using what you know from your geography and planning courses, list <strong>at least four factors other than the number of homes</strong> that decide whether a household can access decent housing in a large city. For each factor, write one sentence explaining the mechanism.</p><p class="muted">Example: “Income — if rents rise faster than wages, households cannot afford homes even when they are available.”</p>',
+words:'50–90 words',unlock:30,rows:7,target:'50–90 words',
+criteria:['I named at least four different factors (economic, legal, spatial, social…)','I explained the mechanism for each factor, not just its name','I used at least three specialist terms (e.g. tenure, rent, discrimination, location, social housing)','I wrote complete sentences in English'],
+model:'<ol><li><strong>Income and affordability:</strong> if rents or prices rise faster than wages, households cannot pay for homes even when they exist.</li><li><strong>Discrimination:</strong> landlords or lenders may reject applicants because of race, origin or family status, so supply exists but access is denied.</li><li><strong>Security of tenure:</strong> weak eviction rules mean that households can lose their homes quickly.</li><li><strong>Location:</strong> new homes may be built far from jobs, transport and services, or in places where existing residents are pushed out.</li><li><strong>Type and size of units:</strong> new supply may consist of small or expensive units that do not match the needs of large or low-income households.</li><li><strong>Allocation rules:</strong> access to social housing depends on eligibility criteria and waiting lists.</li><li><strong>Access to credit:</strong> homeownership depends on savings and mortgage approval.</li></ol>'},
+{type:'mcq',id:'p1b',num:'1.2',mins:3,title:'Reading the numbers',intro:'<p>Answer from the context above and ¶1 of the article.</p>',
+items:[
+{q:'According to the CMHC figure cited in the article, by 2035 Canada must raise annual housing starts to:',o:['about 250,000 units','430,000–480,000 units','about 1 million units','4.8 million units'],a:1,hint:'250,000 is the starting point, not the target.',ex:'¶1: Canada must double new housing starts “from 250,000 to 430,000–480,000 units annually by 2035”.'},
+{q:'What is the stated aim of this increase?',o:['To house every newcomer to Canada','To restore affordability to pre-pandemic levels','To make Toronto as affordable as Vancouver','To replace all social housing'],a:1,hint:'Look for a period of time in ¶1.',ex:'¶1: the aim is to restore affordability to pre-pandemic levels.'},
+{q:'According to the article, when did the most pronounced decline in affordability occur?',o:['During the 2008 financial crisis','During the Covid period','After BCH was launched','When CABR was adopted in 2017'],a:1,hint:'Last sentence of ¶1.',ex:'¶1: the most pronounced decline occurred during the Covid period (CMHC 2025).'}
+]},
+{type:'html',html:SVG_SUPPLY},
+{type:'open',id:'p1c',num:'1.3',mins:6,title:'Supply versus access',kind:'Short paragraph',
+prompt:'<p>Study the schema above. In <strong>60–80 words</strong>, explain why increasing the number of homes might lower average housing costs <em>without</em> improving access for every group. Use at least two of these words: <span class="chip">affordability</span><span class="chip">access</span><span class="chip">discrimination</span><span class="chip">displacement</span><span class="chip">tenure</span></p>',
+words:'60–80 words',unlock:35,rows:6,target:'60–80 words',
+criteria:['I distinguished an average market effect (prices) from who actually gets access','I named at least one concrete barrier (discrimination, eviction, displacement, lack of data)','I used at least two of the suggested words correctly','My paragraph stays within 60–80 words'],
+model:'<p>More housing supply can reduce price pressure on average, but averages hide who is actually able to move into the new homes. If landlords discriminate against Black applicants, if eviction rules make tenure insecure, or if redevelopment displaces existing tenants, the households in greatest need may not benefit. Affordability is a market outcome, whereas access depends on institutions and power relations. This is the gap Dantzler identifies in Build Canada Homes. <span class="muted">(74 words)</span></p>'}
+]},
+
+/* ===== 2 READING ===== */
+{navTitle:'Reading comprehension',mins:25,title:'Reading and understanding the article',
+lead:'Read the whole article once (≈ 7 minutes), then work through the activities. Keep the article open: every answer is in the text.',
+objectives:['Identify the thesis and the structure of an academic opinion article','Understand Build Canada Homes and Toronto’s CABR initiative','Map the evidence of anti-Black discrimination in housing','Distinguish facts, interpretations and recommendations'],
+blocks:[
+{type:'html',html:'<div class="card"><div class="ex-meta"><span class="tag">Reading</span><span class="time">≈ 7 min</span></div><p><strong>Step 1.</strong> '+artLink+'. Read it from the title to the end of ¶10 (skip the bibliography for now).</p><p><strong>Step 2.</strong> While reading, note: (a) the sentence that best states the author’s thesis; (b) every number; (c) every source in brackets, e.g. “(Akaabre et al. 2025)”.</p>'+PARAMAP+
+'<details class="more"><summary>How an academic opinion article is built (supplementary)</summary><div><p>'+SUP+' Policy commentaries such as those in <em>Metropolitics</em> usually follow this logic:</p><ol><li><strong>Hook and context</strong>: a current policy and why it matters (here ¶1).</li><li><strong>Thesis</strong>: the position the author defends, often at the end of the introduction (¶2).</li><li><strong>Evidence</strong>: published studies, official data and examples, cited in brackets (¶3–¶8).</li><li><strong>Counter-position or limits</strong>: what others say, or what an existing tool lacks.</li><li><strong>Recommendations</strong>: concrete actions (R1–R3).</li><li><strong>Conclusion</strong>: a restatement of the thesis in stronger terms (¶10).</li></ol></div></details></div>'},
+{type:'mcq',id:'p2a',num:'2.1',mins:4,title:'Thesis and structure',
+items:[
+{q:'Which statement best expresses the author’s central argument?',o:['Build Canada Homes should be replaced by private-sector construction.','BCH will not produce equitable outcomes unless it embeds an anti-racist framework, such as Toronto’s CABR, in its development plans.','Canada’s housing crisis is caused only by racism, not by a lack of supply.','Toronto’s CABR has already solved racial inequality in housing.'],a:1,hint:'Read the standfirst and the last sentence of ¶2.',ex:'Standfirst and ¶2: “Unless BCH embeds an anti-racist framework like the City of Toronto’s […] (CABR) initiative, its impact will fall short.” The author accepts the supply gap (¶1); the problem is supply <em>without</em> equity.'},
+{q:'What kind of text is this?',o:['An empirical study presenting a new dataset collected by the author','A neutral news report describing a government announcement','An academic opinion piece that builds an argument from published evidence and ends with recommendations','An official government evaluation of BCH'],a:2,hint:'Does the author present new data, or use other people’s studies to defend a position?',ex:'The author takes a clear position (title, ¶2), supports it with studies by others (Akaabre et al., Lewis et al., CMHC, the Street Needs Assessment) and ends with recommendations (R1–R3).'},
+{q:'Why does the author focus on Toronto?',o:['It is the only Canadian city with Black residents.','As the largest and most diverse urban centre, it is emblematic of national dynamics.','BCH operates only in Toronto.','CMHC data cover only Toronto.'],a:1,hint:'¶2, the sentence that starts “As the largest…”.',ex:'¶2: Toronto, “the largest and most diverse urban center”, is “emblematic of these dynamics”. The article says these outcomes appear in both smaller and larger cities (Sioufi 2025).'},
+{q:'According to ¶5, what is the core of Build Canada Homes?',o:['Introducing rent control across Canada','Expanding the supply of affordable and non-market housing, financing builders and working with partners','Taxing foreign buyers of residential property','Allocating new units according to race'],a:1,hint:'¶5 describes BCH in one long sentence listing three things.',ex:'¶5: BCH focuses on expanding affordable and non-market supply, supporting builders with financing, and working with provinces, municipalities, Indigenous communities, non-profits and co-ops.'},
+{q:'What is the author’s main criticism of BCH?',o:['It builds too slowly.','It lacks meaningful targets to address anti-Black racism and has no system to track who benefits and who bears the costs.','It ignores the provinces completely.','It spends too much money on co-operatives.'],a:1,hint:'¶5: “Yet this program lacks…”.',ex:'¶5: BCH “lacks any meaningful targets to address anti-Black racism”. Without data systems tracking who benefits and who bears redevelopment costs, it risks reproducing inequities “under the guise of building more supply for all”.'},
+{q:'Why does the author mention Ontario’s Bill 60?',o:['As an example of a successful anti-racist housing policy','As an example of a policy that speeds up development while reducing tenant protections','Because it is the federal law that created BCH','Because it is a City of Toronto by-law'],a:1,hint:'¶8 opens with “For example”. What does the example illustrate?',ex:'¶8: Bill 60 aims to increase supply by cutting red tape, but it shortens eviction filing times and appeal timelines and removes compensation duties for “own-use” evictions. It illustrates how building faster can weaken tenants’ position.'}
+]},
+{type:'tf',id:'p2b',num:'2.2',mins:6,title:'True or false? Justify with the text',
+intro:'<p>Choose True or False, then write a short justification with a paragraph reference. Only the True/False choice is scored automatically; compare your justification with the correction.</p>',
+items:[
+{s:'Toronto’s Confronting Anti-Black Racism plan was adopted by city council in 2017.',a:true,hint:'First sentence of ¶3.',ex:'¶3: the Five-Year Action Plan “was adopted by the city council in 2017”.'},
+{s:'The CABR plan was drafted by city staff without consulting community members.',a:false,hint:'¶3, second sentence: who was consulted?',ex:'¶3: it was “developed in consultation with Black community members and organizations”, city staff and the City.'},
+{s:'CABR’s directives have been widely applied to housing and homelessness services.',a:false,hint:'Last sentence of ¶3.',ex:'¶3: “these directives have rarely been applied to housing and homelessness services”, where inequality is most visible.'},
+{s:'In the Toronto field experiment, the disadvantage of Black renters disappeared once building type, neighbourhood and rent level were taken into account.',a:false,hint:'¶4: look for “even after controlling for…”.',ex:'¶4: Black renters received significantly fewer positive responses “even after controlling for building types, neighborhood characteristics, and rent levels” (Akaabre et al. 2025).'},
+{s:'Between 2016 and 2021, eviction filings were disproportionately concentrated in Toronto’s Black-majority neighbourhoods.',a:true,hint:'¶4, second study.',ex:'¶4: filings were concentrated in Black-majority neighbourhoods, where corporate and financialized landlords dominate the rental market (Lewis et al. 2026).'},
+{s:'According to the Street Needs Assessment, Black people represent 58% of Toronto’s population.',a:false,hint:'¶6: what does 58% refer to, and what does 10% refer to?',ex:'¶6: Black people are 58% of those experiencing homelessness but about 10% of the city’s population.'},
+{s:'The author states that CABR’s tools have been fully funded and implemented.',a:false,hint:'¶7, second sentence.',ex:'¶7: these tools “arguably have been underused, underfunded or not implemented to date”. The framework is still useful for accountability.'},
+{s:'According to the author, BCH’s mandate is to prioritise non-market and community housing.',a:true,hint:'¶10.',ex:'¶10: BCH will work alongside the private sector, but its “mandate to prioritize non-market and community housing” means it should serve those most vulnerable.'}
+]},
+{type:'select',id:'p2c',num:'2.3',mins:3,title:'Match each claim to its evidence',kind:'Evidence mapping',
+intro:'<p>Academic writers support each claim with a source. Match each claim to the source the article uses.</p>',
+options:['CMHC 2025','Akaabre et al. 2025 (field experiment)','Lewis et al. 2026 (eviction study)','City of Toronto Street Needs Assessment','Sioufi 2025 (BC Policy Solutions)','Skaburskis 2006'],
+items:[
+{p:'Black renters receive fewer positive responses from landlords.',a:1,hint:'A “field experiment” in Toronto’s rental market (¶4).',ex:'¶4: Akaabre et al. 2025.'},
+{p:'Racial housing disparities are visible in both smaller and larger Canadian cities.',a:4,hint:'End of ¶2.',ex:'¶2: Sioufi 2025, a report by BC Policy Solutions.'},
+{p:'Canada must raise housing starts to 430,000–480,000 a year by 2035.',a:0,hint:'¶1.',ex:'¶1: Canada Mortgage and Housing Corporation, 2025.'},
+{p:'Filtering is too slow and ignores rising income inequality.',a:5,hint:'R2.',ex:'R2: Skaburskis 2006, on filtering and the supply of low-priced housing.'},
+{p:'Black people are 58% of people experiencing homelessness in Toronto.',a:3,hint:'¶6.',ex:'¶6: the City of Toronto’s most recent Street Needs Assessment.'},
+{p:'Eviction filings (2016–2021) were concentrated in Black-majority neighbourhoods.',a:2,hint:'¶4, second study.',ex:'¶4: Lewis et al. 2026.'}
+]},
+{type:'select',id:'p2d',num:'2.4',mins:2,title:'Fact, interpretation or recommendation?',kind:'Classification',
+intro:'<p>Critical readers separate what is <strong>reported</strong> (facts, cited evidence), what is <strong>argued</strong> (the author’s interpretation) and what is <strong>proposed</strong> (recommendations). Classify each statement (all paraphrase the article).</p>',
+options:['Fact / cited evidence','Interpretation / argument','Recommendation'],
+items:[
+{p:'CABR includes 22 recommendations and 80 actions.',a:0,hint:'Can this be checked in a document?',ex:'A verifiable fact about the plan (¶3).'},
+{p:'Ignoring race in housing policy does not produce neutrality; it entrenches disparities.',a:1,hint:'Is this a measurement or a judgement?',ex:'The author’s interpretation (end of ¶5): a claim about the effects of policy, not a measurement.'},
+{p:'BCH should track who benefits from new housing by race, income, immigration status and neighbourhood.',a:2,hint:'Look for an implicit “should”.',ex:'R1: a proposed action.'},
+{p:'Bill 60 shortens appeal timelines for tenants.',a:0,hint:'Does it describe the content of a law?',ex:'A description of the legislation (¶8).'},
+{p:'Building faster while ignoring racism means building inequity at scale.',a:1,hint:'A strong, memorable formula…',ex:'The author’s argument, phrased as a conclusion (end of ¶8).'},
+{p:'Federal funding should be tied to anti-displacement and tenant-protection standards.',a:2,hint:'A condition the author wants to create.',ex:'R2: a proposed action.'},
+{p:'Black people make up 58% of those experiencing homelessness in Toronto.',a:0,hint:'A number from an official count.',ex:'Cited evidence from the Street Needs Assessment (¶6).'},
+{p:'Subsidising developers without securing tenure turns public money into engines of exclusion.',a:1,hint:'Is this a measurement or a judgement?',ex:'The author’s interpretation of the effect of such policies (¶8).'},
+{p:'Community land trusts and collective-stewardship approaches should be supported.',a:2,hint:'Which part of the article lists actions?',ex:'R3: a proposed action.'}
+]},
+{type:'open',id:'p2e',num:'2.5',mins:3,title:'“Peripheral” or “built into” the system?',kind:'Short answer',
+prompt:'<p>In ¶2 the author says that anti-Black racism is “not peripheral” to Toronto’s housing system but “built into it”. In <strong>40–60 words</strong>, explain the difference and why it matters for BCH.</p>',
+words:'40–60 words',unlock:25,rows:5,target:'40–60 words',
+criteria:['I explained “peripheral” (marginal, occasional, individual) versus “built into” (structural, systemic)','I gave at least one mechanism from the article (rental screening, evictions, ownership, homelessness)','I linked the distinction to what BCH should do'],
+model:'<p>“Peripheral” would mean that racism is occasional and marginal, the act of a few individuals. “Built into” means it is structural: it shapes how housing is allocated, rented and lost, through landlord screening, evictions and unequal ownership. A structural problem will not disappear by adding supply, so BCH must target it explicitly with data, standards and accountability. <span class="muted">(58 words)</span></p>'}
+]},
+
+/* ===== 3 VOCABULARY ===== */
+{navTitle:'Specialist vocabulary',mins:15,title:'Specialist vocabulary for housing and urban policy',
+lead:'Learn the terms planners use to describe housing systems, then use them in professional sentences. All terms are also in the Glossary (top right).',
+objectives:['Understand 17 key terms in a geographical and policy context','Use collocations accurately (e.g. file an eviction, embed an equity lens)','Write precise sentences about urban processes'],
+blocks:[
+{type:'html',html:'<div class="note"><strong>Tip.</strong> Many terms work as <em>collocations</em> (words that usually go together): <em>housing</em> + shortage / affordability / insecurity / starts; <em>tenant</em> + protection / rights; <em>eviction</em> + filing / rate. Learn them as chunks.</div>'},
+{type:'select',id:'p3a',num:'3.1',mins:3,title:'Housing markets and inequalities: match the terms',kind:'Matching',
+options:['Unequal treatment of applicants or tenants by landlords, e.g. on the basis of race','Corporate owners that treat rental housing mainly as an investment asset for shareholders','The relationship between housing costs and household income','The forced or pressured departure of residents from their home or neighbourhood','Lacking stable, adequate housing or being at risk of losing it','The legal process by which a landlord removes a tenant from a dwelling','A situation in which too few dwellings are available to meet needs or demand','The uneven distribution of social or racial groups across a city’s neighbourhoods','Owning the dwelling you live in; a major channel of wealth accumulation'],
+items:[
+{p:'housing affordability',a:2,ex:'¶1 links affordability to costs that “ballooned” during the pandemic.'},
+{p:'housing shortage',a:6,ex:'¶1: BCH promised a “bold solution to the housing shortage”.'},
+{p:'housing insecurity',a:4,ex:'A broad term: precarious tenure, arrears, overcrowding, risk of eviction.'},
+{p:'homeownership',a:8,ex:'¶2: Black households are underrepresented in homeownership rates and wealth levels.'},
+{p:'rental discrimination',a:0,ex:'¶4: the Toronto field experiment measured it.'},
+{p:'residential segregation',a:7,ex:'A classic urban geography concept; the article speaks of Black-majority neighbourhoods.'},
+{p:'displacement',a:3,ex:'Broader than eviction: it includes leaving because of rising rents or redevelopment pressure.'},
+{p:'eviction',a:5,ex:'A legal procedure; the article analyses eviction <em>filings</em> (¶4) and eviction rules (¶8).'},
+{p:'financialized landlords',a:1,ex:'¶4: “corporate and financialized landlords dominate the rental market” in Black-majority neighbourhoods.'}
+]},
+{type:'select',id:'p3b',num:'3.2',mins:3,title:'Policy and planning tools: match the terms',kind:'Matching',
+options:['Rules that secure renters’ tenure, e.g. limits on eviction and rights of appeal','The principle that everyone should have secure, decent housing and that housing burdens and benefits are fairly shared','A non-profit body that owns land for a community and keeps housing on it permanently affordable','The unequal distribution of resources, opportunities and risks across places','Housing provided by public bodies, non-profits or co-ops, with rents not set to maximise profit','How public authorities at several levels, private actors and civil society make decisions about cities','Rebuilding or transforming existing urban areas, often to increase density or value','A situation in which race no longer predicts people’s housing, wealth or health outcomes'],
+items:[
+{p:'non-market housing',a:4,ex:'¶5 and ¶10: BCH aims to expand affordable and non-market housing.'},
+{p:'community land trust',a:2,ex:'R3: the author recommends supporting community land trusts.'},
+{p:'urban redevelopment',a:6,ex:'¶5: the author asks who “bears the costs of redevelopment”.'},
+{p:'racial equity',a:7,ex:'¶9: BCH “must treat racial equity as a measure of success”.'},
+{p:'tenant protection',a:0,ex:'¶8 and R2: Bill 60 reduces tenant protections.'},
+{p:'spatial inequalities',a:3,ex:'A core geographical concept: inequality has a location.'},
+{p:'urban governance',a:5,ex:'¶7: CABR offers accountability “for all levels of government and local communities”.'},
+{p:'housing justice',a:1,ex:'The article’s normative horizon: research at the Housing Justice Lab (¶2).'}
+]},
+{type:'gap',id:'p3c',num:'3.3',mins:4,title:'Summarise the article: contextual gap-fill',
+intro:'<p>This summary paragraph (not a quotation) uses ten key terms. Type the missing word in each gap. Three words in the bank are distractors.</p>',
+bank:['shortage','affordability','justice','discrimination','financialized','displacement','spatial','tenant','trusts','equity','homeownership','gentrification','filtering'],
+text:'Canada is facing a severe housing [[1]]. To restore housing [[2]], the CMHC estimates that annual housing starts must almost double by 2035. Dantzler warns, however, that more supply will not automatically produce housing [[3]]. In Toronto, a field experiment revealed persistent rental [[4]] against Black applicants, and eviction filings were concentrated in Black-majority neighbourhoods dominated by corporate and [[5]] landlords. Such processes fuel [[6]] and deepen [[7]] inequalities across the city. The author therefore calls for stronger [[8]] protection, support for community land [[9]], and for racial [[10]] to become a measure of success.',
+answers:[['shortage'],['affordability'],['justice'],['discrimination'],['financialized','financialised'],['displacement'],['spatial'],['tenant'],['trusts'],['equity']],
+hints:['The problem BCH promised to solve (¶1).','What CMHC wants to restore (¶1).','The normative goal; it is also part of the name of the author’s research lab.','What the field experiment measured.','A type of landlord, linked to investment funds and corporations.','Residents pushed out of their neighbourhood.','An adjective meaning “related to space / location”.','Bill 60 weakens this kind of protection.','Community land ____ (plural).','Racial ____ as a measure of success (¶9).'],
+ex:['housing shortage: insufficient supply.','housing affordability: costs relative to income.','housing justice: fair, secure access for all.','rental discrimination: measured by Akaabre et al. 2025.','financialized landlords (British spelling “financialised” accepted).','displacement: departure under pressure.','spatial inequalities: inequalities between places.','tenant protection (R2).','community land trusts (R3).','racial equity (¶9).']},
+{type:'mcq',id:'p3d',num:'3.4',mins:2,title:'Collocations planners use',intro:'<p>Choose the word that collocates naturally in professional English.</p>',
+items:[
+{q:'Under Bill 60, landlords can ___ eviction applications for non-payment of rent more quickly.',o:['file','make','do','put'],a:0,hint:'The noun “filing” appears in ¶4 and ¶8.',ex:'to file an eviction (application) → an eviction filing.'},
+{q:'The author argues that BCH must ___ an equity lens into its planning processes.',o:['wear','embed','insert in','put on'],a:1,hint:'The verb appears in the standfirst and ¶2.',ex:'to embed a framework / an equity lens: make it an integral part.'},
+{q:'Black residents are ___ among people experiencing homelessness in Toronto.',o:['overcrowded','overestimated','overrepresented','overruled'],a:2,hint:'A larger share than their share of the population.',ex:'overrepresented (≠ underrepresented, used in ¶2 for homeownership).'},
+{q:'Federal funding should be ___ to anti-displacement standards.',o:['knotted','tied','dressed','fixed up'],a:1,hint:'R2 heading.',ex:'to tie funding to conditions = conditional funding.'},
+{q:'Housing ___ measure the number of new dwellings on which construction begins.',o:['starts','beginnings','launches','openings'],a:0,hint:'¶1, CMHC figure.',ex:'housing starts: the standard supply indicator.'}
+]},
+{type:'open',id:'p3e',num:'3.5',mins:3,title:'Use the terms: a city you know',kind:'Sentence construction',
+prompt:'<p>'+OWN+' Write <strong>four sentences</strong> about a city you have studied (in France or elsewhere), using <strong>at least four terms</strong> from 3.1–3.2. Describe processes; do <strong>not</strong> invent statistics.</p>',
+words:'4 sentences',unlock:35,rows:6,
+criteria:['I used at least four specialist terms, each correctly','Each sentence describes a process or relationship (cause → effect)','I named a real place and did not invent figures','My grammar and collocations are accurate (e.g. “tenant protection”, “to face eviction”)'],
+model:'<p class="muted">Model sentences (generic; replace with your own city):</p><ol><li>In many metropolitan areas, <strong>urban redevelopment</strong> near new transit lines raises land values and can lead to the <strong>displacement</strong> of low-income tenants.</li><li>When <strong>financialized landlords</strong> buy older rental buildings, they often raise rents after renovations, which increases <strong>housing insecurity</strong>.</li><li>Strong <strong>tenant protection</strong>, such as limits on <strong>eviction</strong>, helps households stay in their neighbourhood when it changes.</li><li>Expanding <strong>non-market housing</strong> in well-served districts can reduce <strong>residential segregation</strong> and <strong>spatial inequalities</strong>.</li></ol>'}
+]},
+
+/* ===== 4 GEOGRAPHY ===== */
+{navTitle:'Geographical analysis',mins:20,title:'Geographical analysis: space, displacement and governance',
+lead:'Read the article as a geographer: where are inequalities located, which processes produce them, and which level of government can act on them?',
+objectives:['Explain how housing inequalities are spatially distributed','Analyse the links between redevelopment, affordability and displacement','Identify the responsibilities of federal, provincial and municipal authorities'],
+blocks:[
+{type:'html',html:SVG_CYCLE+'<h2>A. Spatial inequalities</h2>'},
+{type:'mcq',id:'p4a',num:'4.1',mins:3,title:'Reading the evidence spatially',
+items:[
+{q:'Which piece of evidence is tied to specific neighbourhoods inside Toronto?',o:['Black people are 58% of people experiencing homelessness.','Eviction filings were concentrated in Black-majority neighbourhoods.','Canada must reach 430,000–480,000 starts a year.','CABR has 22 recommendations and 80 actions.'],a:1,hint:'Which study works at the neighbourhood scale?',ex:'¶4 (Lewis et al. 2026) works at the neighbourhood scale. The 58% figure is a city-wide share; the CMHC figure is national.'},
+{q:'Both Toronto studies found that the patterns persisted across neighbourhoods, housing types and rent levels. What does this suggest?',o:['The studies used unreliable data.','The differences cannot be explained only by housing type, location or price, which supports the claim that race structures outcomes.','All neighbourhoods are equally affected.','Rent levels are the main cause of evictions.'],a:1,hint:'What do researchers “control for”, and why?',ex:'Controlling for other variables rules out alternative explanations. If the gap remains, race itself is associated with the outcome, exposing “racial biases embedded” in the housing landscape (¶4).'},
+{q:'The article says that these outcomes appear “across both smaller and larger Canadian cities”. Why does this matter geographically?',o:['It shows that the problem is limited to Toronto.','It shows a national, multi-scalar pattern, which justifies action by a national programme such as BCH.','It proves that small cities have no housing crisis.','It shows that racism disappears in large cities.'],a:1,hint:'Link the scale of the problem to the scale of the policy.',ex:'¶2 (Sioufi 2025): if inequalities are found across the urban hierarchy, a federal programme cannot ignore them; this is why the author targets BCH and not only Toronto.'}
+]},
+{type:'open',id:'p4b',num:'4.2',mins:4,title:'Market structure and the geography of eviction',kind:'Analytical paragraph',
+prompt:'<p>In <strong>70–100 words</strong>, explain how the article links <em>who owns rental housing</em> to <em>where evictions are concentrated</em>. Use: <span class="chip">concentrated</span><span class="chip">Black-majority neighbourhoods</span><span class="chip">financialized landlords</span><span class="chip">displacement</span><span class="chip">tenure</span>. Label any explanation that goes beyond the article.</p>',
+words:'70–100 words',unlock:40,rows:7,target:'70–100 words',
+criteria:['I reported the finding accurately (period, place, type of landlord, Lewis et al. 2026)','I mentioned that the pattern persisted across neighbourhoods, housing types and rent levels','I explained the mechanism and labelled it as my own or supplementary explanation','I used at least four of the five terms'],
+model:'<p>'+A+' Between 2016 and 2021, eviction filings were disproportionately concentrated in Toronto’s Black-majority neighbourhoods, where corporate and financialized landlords dominate the rental market (Lewis et al. 2026). The pattern persisted across neighbourhoods, housing types and rent levels. '+SUP+' Financialized landlords manage housing as an investment and may seek higher returns through rent increases or tenant turnover, which weakens security of tenure. The result is a spatial concentration of displacement pressure on Black renters, which reinforces existing inequalities between neighbourhoods. <span class="muted">(87 words)</span></p>'},
+{type:'html',html:'<h2>B. Urban development and displacement</h2>'},
+{type:'select',id:'p4c',num:'4.3',mins:3,title:'Reconstruct the author’s reasoning on Bill 60',kind:'Sequencing',
+intro:'<p>Put the five steps of the author’s reasoning (¶8) in logical order: choose 1st, 2nd, 3rd… for each step. Step 4 combines ¶8 with the eviction evidence from ¶4.</p>',
+options:['1st','2nd','3rd','4th','5th'],
+items:[
+{p:'Tenants in core need, disproportionately Black renters, face eviction and displacement.',a:3,hint:'This is the social consequence, before the author’s general conclusion.',ex:'4th: the people affected (¶4, ¶8).'},
+{p:'Governments seek to speed up housing production by cutting “red tape”.',a:0,hint:'The policy objective comes first.',ex:'1st: the goal of Bill 60 (¶8).'},
+{p:'Public support for building turns into what the author calls “engines of exclusion”.',a:4,hint:'The author’s final judgement.',ex:'5th: the conclusion of ¶8.'},
+{p:'Laws such as Bill 60 shorten eviction filing times and appeal timelines.',a:1,hint:'The legal instrument.',ex:'2nd: the content of the law (¶8).'},
+{p:'Landlords can pursue evictions faster, and tenants find it harder to defend themselves.',a:2,hint:'The effect of the law on the landlord–tenant relationship.',ex:'3rd: the mechanism (¶8).'}
+]},
+{type:'mcq',id:'p4d',num:'4.4',mins:1,title:'Why not wait for filtering?',
+items:[{q:'In R2, why does the author consider “filtering” an insufficient answer?',o:['Because older units never become cheaper','Because it is too slow and inattentive to rising income inequality and changes within regions','Because it only applies to homeownership','Because BCH has banned it'],a:1,hint:'R2, last sentence (Skaburskis 2006).',ex:'R2: filtering, where older units become available to lower-income households as richer ones move to new units, is “too slow and inattentive to rising income inequality and intra-regional changes”.'}]},
+{type:'open',id:'p4e',num:'4.5',mins:3,title:'Why more supply may not help existing residents',kind:'Analytical paragraph',
+prompt:'<p>In <strong>80–100 words</strong>: why might increasing housing supply fail to benefit existing vulnerable populations? Give <strong>two mechanisms from the article</strong> and <strong>one from your own geography knowledge</strong> (label it).</p>',
+words:'80–100 words',unlock:40,rows:7,target:'80–100 words',
+criteria:['Two mechanisms are taken from the article, with sources (e.g. discrimination, eviction rules, filtering, no data)','One mechanism comes from my own knowledge and is labelled as such','I used linking words (first, moreover, in addition, as a result)'],
+model:'<p>'+A+' First, new units may remain inaccessible: the Toronto field experiment shows that Black renters receive fewer positive responses from landlords (Akaabre et al. 2025). Second, faster eviction procedures, such as those introduced by Ontario’s Bill 60, can push existing tenants out before they benefit from new supply. Moreover, the author notes that filtering is too slow and ignores rising income inequality (Skaburskis 2006). '+OWN+' In addition, new supply is often built where land is cheapest or most profitable, not necessarily where low-income residents live and work. <span class="muted">(93 words)</span></p>'},
+{type:'html',html:'<h2>C. Urban governance</h2><p>The article names institutions at several levels of government. Before looking at the diagram, test yourself.</p>'},
+{type:'select',id:'p4f',num:'4.6',mins:3,title:'Who does what? Levels of government',kind:'Classification',
+options:['Federal','Provincial','Municipal','Joint federal–provincial'],
+items:[
+{p:'Build Canada Homes',a:0,hint:'Launched by the Prime Minister (bibliography).',ex:'A federal agency launched in 2025 (¶1; Prime Minister of Canada 2025).'},
+{p:'Canada Mortgage and Housing Corporation (CMHC)',a:0,hint:'“Canada” in the name, national data.',ex:'Supplementary: CMHC is the federal housing agency (a Crown corporation).'},
+{p:'Bill 60, Fighting Delays, Building Faster Act',a:1,hint:'Passed by Ontario.',ex:'¶8: Ontario’s legislation, a provincial law on evictions and tenant rights.'},
+{p:'Confronting Anti-Black Racism action plan',a:2,hint:'Adopted by a city council.',ex:'¶3: adopted by Toronto city council in 2017.'},
+{p:'Street Needs Assessment',a:2,hint:'Look at the URL in the bibliography.',ex:'¶6 and bibliography: a City of Toronto count of people experiencing homelessness.'},
+{p:'Multi-Unit Residential Acquisition (MURA) programme',a:2,hint:'Look at the URL in the bibliography.',ex:'R3 and bibliography: a City of Toronto programme (toronto.ca).'},
+{p:'Canada Ontario Housing Benefit',a:3,hint:'Read the name carefully.',ex:'¶6: as its name indicates, a joint Canada–Ontario benefit.'}
+]},
+{type:'html',html:'<details class="more"><summary>Show the governance diagram (open after Activity 4.6)</summary><div>'+SVG_GOV+'</div></details>'},
+{type:'open',id:'p4g',num:'4.7',mins:3,title:'Using funding as a lever',kind:'Analytical paragraph',
+prompt:'<p>The author recommends tying federal funding to anti-displacement and tenant-protection standards (R2). In <strong>80–100 words</strong>, explain (a) why a federal agency would use <em>funding</em> as a lever, given that in the article tenant rules are set by a province, and (b) one tension this could create.</p>',
+words:'80–100 words',unlock:40,rows:7,target:'80–100 words',
+criteria:['I identified that eviction and tenant rules are provincial in the article (Bill 60)','I explained conditional funding as indirect influence','I identified a realistic tension (e.g. with Ontario’s direction, delays, resistance to federal conditions)','I used governance vocabulary (level, jurisdiction, condition, accountability)'],
+model:'<p>(a) '+A+' In the article, eviction rules are set by the province, as Ontario’s Bill 60 shows, so a federal agency cannot rewrite them. '+SUP+' It controls money, however. By making funding conditional on anti-displacement and tenant-protection standards, the federal level can influence provinces and developers without legislating directly. (b) A tension arises when a province moves in the opposite direction, as Ontario did by speeding up evictions to build faster. Conditions could be resisted as federal interference in provincial jurisdiction, or could slow projects down. <span class="muted">(90 words)</span></p>'}
+]},
+
+/* ===== 5 POLICY ===== */
+{navTitle:'Public policy evaluation',mins:20,title:'Evaluating public policies: Build Canada Homes and CABR',
+lead:'Compare a federal supply programme and a municipal anti-racism framework, then take a position: is building more housing enough?',
+objectives:['Identify the objectives and approaches of BCH and CABR','Assess their strengths and limitations','Explain why data collection and public accountability matter','Argue a position with evidence, concessions and reservations'],
+blocks:[
+{type:'html',html:STATS},
+{type:'select',id:'p5a',num:'5.1',mins:4,title:'BCH, CABR or neither?',kind:'Policy comparison',
+intro:'<p>According to the article, which programme does each statement describe?</p>',
+options:['Build Canada Homes','CABR (Toronto)','Neither, according to the article'],
+items:[
+{p:'Adopted by a city council in 2017.',a:1,ex:'¶3.'},
+{p:'Launched by the federal government in the fall of 2025.',a:0,ex:'¶1.'},
+{p:'Mainly focuses on scaling up the supply of affordable and non-market housing.',a:0,ex:'¶5.'},
+{p:'Calls for race-based data, anti-racism impact assessments and public accountability.',a:1,ex:'¶3 and ¶7.'},
+{p:'Works with provinces, municipalities, Indigenous communities, non-profits and co-ops.',a:0,ex:'¶5.'},
+{p:'Was developed in consultation with Black community members and organisations.',a:1,ex:'¶3.'},
+{p:'Contains meaningful targets to address anti-Black racism within the housing market.',a:2,hint:'Check ¶5 for BCH and the end of ¶3 for CABR.',ex:'BCH “lacks any meaningful targets” on anti-Black racism (¶5). CABR’s five priority areas do not include housing, and its directives were “rarely applied” to housing (¶3). This gap is exactly what the author wants to close.'},
+{p:'Is described as having tools that were “underused, underfunded or not implemented”.',a:1,ex:'¶7.'}
+]},
+{type:'mcq',id:'p5b',num:'5.2',mins:3,title:'Data and accountability',
+items:[
+{q:'Black people are 58% of people experiencing homelessness in Toronto, and 10% of the population. What does this mean?',o:['Black residents are slightly overrepresented.','Black residents’ share of the homeless population is almost six times their share of the city’s population.','Most Black residents in Toronto are homeless.','Homelessness affects 58% of Black residents.'],a:1,hint:'Compare 58 with 10. A share of a group is not the same as a rate within a group.',ex:'58 ÷ 10 = 5.8, almost six times. It does <em>not</em> mean that 58% of Black residents are homeless; that would be a different indicator.'},
+{q:'Why does the author insist that data on who benefits should be published regularly (R1)?',o:['To reduce the cost of construction','To create public accountability, by showing who benefits from new housing and who bears the costs of redevelopment','To replace the Street Needs Assessment','To identify individual tenants for eviction'],a:1,hint:'¶5 and ¶7: “public accountability”.',ex:'¶5: without data systems tracking who benefits and who bears costs, inequities stay hidden. R1: publish results regularly, so that governments can be held to account.'},
+{q:'Why does the author call CABR a “road map” although its tools were underused?',o:['Because it has already been applied to every housing project','Because it already offers tools (impact assessments, race-based data, public accountability) that BCH could adopt and that embed equity into monitoring','Because it is a federal law','Because it replaces housing supply targets'],a:1,hint:'¶7.',ex:'¶7: the framework provides accountability for all levels of government, increases communication across sectors and embeds equity into monitoring and evaluation.'}
+]},
+{type:'open',id:'p5c',num:'5.3',mins:6,title:'Strengths and limitations',kind:'Policy evaluation grid',
+prompt:'<p>Complete the grid in note form (key phrases are fine). Base the BCH and CABR entries on the article; you may add one point of your own if you label it.</p>',
+fields:[{k:'bs',label:'Build Canada Homes: strengths',rows:3},{k:'bl',label:'Build Canada Homes: limitations (according to the author)',rows:3},{k:'cs',label:'CABR: strengths',rows:3},{k:'cl',label:'CABR: limitations',rows:3}],
+unlock:40,target:'2–3 points per box',
+criteria:['Each box has at least two relevant points','My points are accurate and traceable to a paragraph','I separated the author’s view from my own additions','I used evaluative vocabulary (scale, scope, accountability, targets, implementation)'],
+model:'<div class="tw"><table class="t"><thead><tr><th></th><th>Strengths</th><th>Limitations</th></tr></thead><tbody>'+
+'<tr><th>BCH</th><td>National scale and federal financing (¶5) · targets a real supply gap (¶1) · prioritises affordable, non-market and community housing (¶5, ¶10) · works with many partners: provinces, municipalities, Indigenous communities, non-profits, co-ops (¶5)</td><td>No meaningful targets on anti-Black racism (¶5) · no data system on who benefits and who bears redevelopment costs (¶5) · risk of reproducing inequities “under the guise” of supply for all (¶5) · may subsidise developers without securing tenure (¶8)</td></tr>'+
+'<tr><th>CABR</th><td>Names anti-Black racism explicitly (¶3) · co-developed with Black communities (¶3) · measurable results: race-based data, tracking development projects, ending ineffective practices, redirecting resources (¶3) · impact assessments and public accountability across sectors (¶7)</td><td>Municipal scale only · its five priority areas do not include housing (¶3) · rarely applied to housing and homelessness (¶3) · tools underused, underfunded or not implemented (¶7)</td></tr></tbody></table></div>'},
+{type:'html',html:'<div class="card"><h3>Language bank: agreeing, disagreeing, expressing reservations</h3><div class="lang">'+
+'<h4>Taking a position</h4><ul><li>I would argue that…</li><li>In my view, the evidence suggests that…</li><li>The central issue is not whether…, but whether…</li></ul>'+
+'<h4>Agreeing</h4><ul><li>There is strong evidence that…</li><li>Dantzler rightly points out that…</li><li>This is consistent with…</li></ul>'+
+'<h4>Disagreeing</h4><ul><li>I am not convinced that…</li><li>This argument overlooks…</li><li>It does not follow that…</li></ul>'+
+'<h4>Reservations and concessions</h4><ul><li>Admittedly, …; nevertheless, …</li><li>While it is true that…, this does not necessarily mean that…</li><li>…, although this depends on…</li></ul>'+
+'<h4>Using evidence</h4><ul><li>As Dantzler (2026) argues, …</li><li>According to the Street Needs Assessment cited in the article, …</li><li>A Toronto field experiment (Akaabre et al. 2025) found that…</li></ul>'+
+'<h4>Concluding</h4><ul><li>On balance, …</li><li>A credible strategy would therefore combine… with…</li></ul></div></div>'},
+{type:'open',id:'p5d',num:'5.4',mins:7,title:'Is building more housing enough?',kind:'Argumentative paragraph',
+prompt:'<p>Write <strong>120–150 words</strong> answering: <em>Is building more housing sufficient to solve the housing crisis?</em></p><ul><li>State your position in the first sentence.</li><li>Use evidence from <strong>at least two sources</strong> cited in the article.</li><li>Include <strong>one concession</strong> (“Admittedly…”).</li><li>Distinguish <strong>increasing supply</strong> from <strong>ensuring equitable access</strong>.</li><li>End with a conclusion.</li></ul>',
+words:'120–150 words',unlock:60,rows:9,target:'120–150 words',
+criteria:['My position is clear in the first sentence','I used at least two sources from the article accurately','I included a genuine concession and answered it','I explicitly distinguished supply from equitable access','I used at least three expressions from the language bank','My conclusion follows from the argument'],
+model:'<p>Building more housing is necessary but not sufficient to solve Canada’s housing crisis. The CMHC estimate cited by Dantzler shows that supply must almost double by 2035, so production clearly matters. However, more units do not decide who gets housed. A Toronto field experiment found that Black renters receive fewer positive responses from landlords (Akaabre et al. 2025), and eviction filings were concentrated in Black-majority neighbourhoods dominated by financialized landlords (Lewis et al. 2026). Admittedly, equity targets and data systems may slow delivery at first. Nevertheless, as Ontario’s Bill 60 illustrates, speeding up production while weakening tenant protection can displace the very households new housing is meant to help. A credible strategy should therefore combine supply with tenant protection, race-based data and public accountability, so that affordability gains reach the groups in core need. <span class="muted">(141 words)</span></p>'},
+{type:'html',html:'<details class="more"><summary>Going further: race-based data in Canada and France (supplementary)</summary><div><p>'+SUP+' The author’s first recommendation, collecting and publishing data by race, is standard practice in Canadian and North American research. In France, the collection of data on race or ethnicity is strongly restricted, and researchers usually rely on indicators such as country of birth or parents’ nationality.</p><p><strong>Discussion question:</strong> Could a French housing agency evaluate discrimination in access to housing without such data? Which indicators could planners use instead, and what would they miss?</p></div></details>'}
+]},
+
+/* ===== 6 SIMULATION ===== */
+{navTitle:'Professional simulation',mins:20,title:'Professional simulation: you are urban planners',
+lead:'Apply the article’s recommendations to a realistic planning case. Your deliverable is a short policy memo to a city council committee.',
+objectives:['Turn research evidence into planning recommendations','Write a structured, professional policy memo','Justify recommendations with evidence and measurable indicators'],
+blocks:[
+{type:'html',html:'<div class="card"><div class="ex-meta"><span class="tag">Scenario</span><span class="time">≈ 4 min</span></div><h3>The Northbridge rail yard: an equitable housing strategy</h3>'+
+'<p>'+FIC+' <strong>Northbridge</strong> is an invented, mid-sized Canadian municipality. All details below are fictional and contain no real data.</p>'+
+'<ul><li><strong>The site.</strong> The City owns a large former rail yard next to a new transit station, on the edge of <strong>Eastgate</strong>, an older neighbourhood of mid-rise rental apartment buildings.</li>'+
+'<li><strong>The opportunity.</strong> Council wants to apply for <strong>Build Canada Homes</strong> financing to build a large affordable housing development on the site, together with non-profit and private partners.</li>'+
+'<li><strong>The warning signs.</strong> In recent years, several Eastgate buildings have been bought by large corporate landlords. Tenant associations report more eviction filings and more tenants leaving after renovations. Many Eastgate tenants are Black and low-income households.</li>'+
+'<li><strong>The precedent.</strong> A previous waterfront redevelopment added many new condominiums, but long-standing tenants moved away. The City collected no data on who moved in and who left.</li>'+
+'<li><strong>The provincial context.</strong> The province has recently passed legislation that shortens eviction timelines to speed up housing construction, similar to Ontario’s Bill 60.</li>'+
+'<li><strong>The demand.</strong> Black community organisations and tenant associations ask to be involved in decisions about the site.</li></ul>'+
+'<h4>Your team</h4><p>You work in the City’s planning department. If you work in a group, share these roles; if you work alone, take all four perspectives:</p>'+
+'<div class="cols"><div class="tile"><b style="font-size:1.05rem">Lead planner</b><span>overall strategy, land use, coherence of the memo</span></div><div class="tile"><b style="font-size:1.05rem">Housing data analyst</b><span>indicators, data collection, monitoring</span></div><div class="tile"><b style="font-size:1.05rem">Tenant-rights adviser</b><span>eviction risks, tenant protection, anti-displacement</span></div><div class="tile"><b style="font-size:1.05rem">Community liaison</b><span>participation, community ownership, trust</span></div></div>'+
+'<h4>Your task</h4><p>Write a <strong>policy memo of 300–400 words</strong> to the <strong>Planning Committee of Northbridge City Council</strong>, recommending an equitable housing strategy for the rail yard. Address <strong>at least three</strong> of the eight areas listed in the memo form below, and <strong>justify each recommendation with the article</strong>. Give at least one <strong>indicator</strong> to measure success.</p>'+
+'<h4>Suggested timing</h4><ol><li>Read the scenario and choose your areas (4 min)</li><li>Draft the memo (12 min)</li><li>Self-assess with the rubric, then compare with the model memo (4 min)</li></ol></div>'+
+'<div class="card"><h3>Toolkit</h3><div class="lang">'+
+'<h4>Framing the problem</h4><ul><li>The proposed development presents an opportunity to…, but it also carries a risk of…</li><li>Past experience on the waterfront suggests that…</li></ul>'+
+'<h4>Recommending</h4><ul><li>We recommend that the City (should) require…</li><li>It is essential that the developer provide…</li><li>Council should make funding conditional on…</li></ul>'+
+'<h4>Justifying with evidence</h4><ul><li>As Dantzler (2026) argues, …</li><li>Evidence from Toronto (Lewis et al. 2026) shows that…</li><li>This follows the model of Toronto’s CABR framework, which…</li></ul>'+
+'<h4>Measuring success</h4><ul><li>Success will be measured by…</li><li>Key indicators include…</li><li>Results will be published every… and reviewed by…</li></ul>'+
+'<h4>Anticipating objections</h4><ul><li>These measures may slow delivery; however, …</li><li>To mitigate this risk, we propose…</li></ul>'+
+'<h4>Vocabulary to reuse</h4><ul><li>affordable housing targets · non-market housing</li><li>tenant protection · right of return · relocation assistance</li><li>anti-displacement measures · community land trust</li><li>race-based data · public accountability · anti-racism impact assessment</li><li>core housing need · monitoring and evaluation</li></ul></div></div>'+
+'<p>Memo heading to copy at the top of your document if you hand it in:</p><div class="memo-head">MEMORANDUM\nTo:      Planning Committee, Northbridge City Council\nFrom:    Equitable Housing Planning Team\nDate:    [date]\nSubject: Recommendations for an equitable housing strategy, rail yard site</div>'},
+{type:'open',id:'p6a',num:'6.1',mins:16,title:'Write the policy memo',kind:'Professional writing',
+prompt:'<p>Write your memo section by section. The word guidance for each section adds up to 300–400 words.</p>',
+fields:[
+{k:'ctx',label:'1. Context and problem',words:'50–70 words',rows:4,help:'What is planned? What went wrong before? Why does it matter? Refer to the article.'},
+{k:'obj',label:'2. Objectives',words:'30–50 words',rows:3,help:'What should the strategy achieve, and for whom?'},
+{k:'rec',label:'3. Recommendations',words:'150–200 words',rows:10,help:'At least three recommendations. For each: the measure → its justification from the article → an indicator.'},
+{k:'mon',label:'4. Monitoring and accountability',words:'40–60 words',rows:3,help:'Who collects which data, how often, who reviews it in public?'},
+{k:'risk',label:'5. Risks and conclusion',words:'30–50 words',rows:3,help:'One risk or objection, how you mitigate it, and your final recommendation to Council.'}],
+areas:['Affordable housing targets','Tenant protection','Anti-displacement measures','Community participation','Community land trusts','Race-based data collection','Public accountability','Access to non-market housing'],
+unlock:120,target:'300–400 words',
+critIntro:'<p>Use the rubric to place your memo in a band for each criterion, then tick the checklist.</p>',
+rubric:'<div class="tw"><table class="t"><thead><tr><th>Criterion</th><th>Excellent</th><th>Good</th><th>Developing</th><th>Insufficient</th></tr></thead><tbody>'+
+'<tr><th>Task &amp; structure</th><td>Clear memo format; 5 sections; ≥3 well-defined recommendations; 300–400 words</td><td>Memo format; ≥3 recommendations, one less precise</td><td>Structure unclear or only 2 recommendations</td><td>Not a memo; no clear recommendations</td></tr>'+
+'<tr><th>Use of the article</th><td>Each recommendation justified with accurate evidence or recommendations from the article (sources named); no invented statistics</td><td>Most recommendations justified; minor imprecision</td><td>Vague references (“the article says”)</td><td>No or inaccurate use of the article</td></tr>'+
+'<tr><th>Planning reasoning</th><td>Considers space (who lives where), governance (who decides), indicators and feasibility; anticipates a risk</td><td>Considers most of these dimensions</td><td>Generic measures not linked to the site or to indicators</td><td>No planning logic</td></tr>'+
+'<tr><th>Language &amp; register</th><td>Precise specialist vocabulary; recommending and hedging forms; professional tone; few errors</td><td>Good vocabulary; some errors that do not impede meaning</td><td>Limited vocabulary; frequent errors</td><td>Errors impede understanding</td></tr>'+
+'</tbody></table></div>',
+criteria:['My memo follows the 5-section structure and is between 300 and 400 words','I address at least three of the eight areas','Each recommendation is justified with a specific element of the article (study, example, recommendation)','I propose at least one measurable indicator','I considered the role of different levels of government or partners','I anticipated at least one risk or objection','I used recommending forms (we recommend that…, should, it is essential that…) and specialist vocabulary','I did not invent statistics about Northbridge'],
+modelTitle:'Model memo (one possible answer)',
+model:'<div class="memo-head">MEMORANDUM\nTo:      Planning Committee, Northbridge City Council\nFrom:    Equitable Housing Planning Team\nSubject: Recommendations for an equitable housing strategy, rail yard site</div>'+
+'<h4>1. Context and problem</h4><p>The City intends to apply for Build Canada Homes financing to develop the former rail yard. The waterfront redevelopment increased supply, but long-standing tenants left and the City cannot say who moved in. Eastgate tenants now report rising eviction filings. As Dantzler (2026) warns, building faster without an equity lens risks “building inequity at scale”.</p>'+
+'<h4>2. Objectives</h4><p>Increase affordable supply while ensuring that current residents, especially Black and low-income renters in core need, benefit from the project rather than being displaced by it.</p>'+
+'<h4>3. Recommendations</h4><p><strong>R1, race-based data and public reporting.</strong> Track who applies for, obtains and leaves units by race, income, immigration status and neighbourhood, and publish the results twice a year. This follows the article’s call for CABR-style data governance. <em>Indicator:</em> share of new tenancies going to households in core need, by group.</p>'+
+'<p><strong>R2, tenant protection and anti-displacement conditions.</strong> Make access to municipal land conditional on a right of return for displaced tenants, relocation assistance, and compensation for any own-use or renovation eviction. The article shows that weaker rules, such as Ontario’s Bill 60, make evictions faster. <em>Indicator:</em> eviction filings in Eastgate, monitored with a tool like Toronto’s RenovationWatch.ca.</p>'+
+'<p><strong>R3, community land trust and non-market housing.</strong> Transfer part of the site to a community land trust and to non-profit and co-op providers to keep units permanently affordable, as the article recommends. <em>Indicator:</em> number of permanently affordable non-market units.</p>'+
+'<p><strong>R4, community participation.</strong> Create an advisory board including tenant associations and Black community organisations, as Toronto did when developing CABR.</p>'+
+'<h4>4. Monitoring and accountability</h4><p>An annual anti-racism impact assessment, discussed in public by Council and the advisory board, should determine whether the next funding phase is released.</p>'+
+'<h4>5. Risks and conclusion</h4><p>These conditions may slow delivery and deter some developers. However, as the author stresses, more homes must not mean more inequity. We recommend that Council adopt R1–R4 before submitting the funding application.</p>'+
+'<p class="muted">≈ 370 words. Why it works: each recommendation follows measure → evidence → indicator; it uses three of the article’s recommendations (R1 data governance, R2 funding conditions, R3 community ownership); it names a risk; it invents no figures.</p>'}
+]},
+
+/* ===== 7 FINAL ===== */
+{navTitle:'Final assessment',mins:5,title:'Final assessment and reflection',
+lead:'Check what you have learnt, reflect on spatial justice, and review your results.',
+objectives:['Check your understanding of the article’s argument','Connect housing policy and spatial justice','Assess your own progress'],
+blocks:[
+{type:'mcq',id:'p7a',num:'7.1',mins:2,title:'Knowledge check',
+items:[
+{q:'Which sentence best summarises the article’s central argument?',o:['Canada does not need more housing.','Expanding affordable and non-market housing without equity targets risks reproducing the disparities it aims to address.','Private builders should run Build Canada Homes.','Racism in housing only exists in Toronto.'],a:1,hint:'¶10.',ex:'¶10 restates the thesis: expanding supply “without equity targets risks reproducing the same disparities it aims to address”.'},
+{q:'Which recommendation most directly answers the question “who benefits from new housing?”',o:['Supporting community land trusts','CABR-style data governance: tracking and publishing who benefits by race, income, immigration status and neighbourhood','Scaling up MURA','Cutting red tape'],a:1,hint:'R1.',ex:'R1: tracking who benefits and publishing the results.'},
+{q:'Which programme does the author want scaled up with rehabilitation loans?',o:['The Canada Ontario Housing Benefit','The Multi-Unit Residential Acquisition (MURA) programme','The Street Needs Assessment','Bill 60'],a:1,hint:'R3.',ex:'R3: MURA, to secure deeply affordable housing in some of the country’s oldest neighbourhoods.'},
+{q:'What is RenovationWatch.ca?',o:['A federal funding programme','An online platform that tracks renovations and building permit applications for multi-unit housing in Toronto','A landlord association','A section of Bill 60'],a:1,hint:'R1.',ex:'R1 presents it as a model of open data.'},
+{q:'Why must BCH “get equity right”, according to the author?',o:['Because it builds more units than the private sector','Because private builders will chase profitability, while BCH’s mandate prioritises non-market and community housing for those most vulnerable','Because CABR is ending','Because CMHC requires it'],a:1,hint:'¶10.',ex:'¶10: private builders will continue to chase profitability; BCH’s mandate means it should serve those excluded from private development.'}
+]},
+{type:'open',id:'p7b',num:'7.2',mins:2,title:'Reflection: housing policy and spatial justice',kind:'Reflection',
+prompt:'<p>In <strong>50–70 words</strong>: how do housing policies shape spatial justice? Connect the article to a city you know.</p>',
+words:'50–70 words',unlock:25,rows:5,target:'50–70 words',
+criteria:['I defined or illustrated spatial justice (who lives where, with what security and opportunities)','I referred to at least one mechanism from the article','I made a link to another city'],
+model:'<p>Housing policies decide where different groups can live and how securely. When supply programmes ignore discrimination, eviction and displacement, they reproduce the concentration of disadvantage in particular neighbourhoods, which is a spatial injustice. Policies become tools of spatial justice when they track who benefits, protect tenure and keep land under community control. '+OWN+' [Add an example from a city you know.] <span class="muted">(58 words + example)</span></p>'},
+{type:'checklist',id:'p7c',num:'7.3',mins:1,title:'Self-assessment: what can you do now?',intro:'<p>Tick what you can do confidently. Go back to the relevant section for anything you cannot tick yet.</p>',
+items:['I can state the author’s thesis in one sentence.','I can name three pieces of evidence and their sources.','I can distinguish facts, interpretations and recommendations in an opinion article.','I can use at least ten specialist terms accurately.','I can explain how evictions and displacement are spatially concentrated.','I can describe the roles of federal, provincial and municipal authorities in housing.','I can evaluate the strengths and limitations of BCH and CABR.','I can write a policy recommendation with evidence and an indicator.']},
+{type:'html',html:'<h2>Your completion summary</h2>'},
+{type:'summary'},
+{type:'html',html:'<div class="card"><h3>Sources</h3><p>Dantzler, P. 2026. “‘Build Canada Homes’ Will Fail Without Confronting Anti-Black Racism”, <em>Metropolitics</em>, 28 April. <a href="'+ART+'" target="_blank" rel="noopener">metropolitics.org</a>. All studies cited in this course (CMHC 2025; Akaabre et al. 2025; Lewis et al. 2026; Sioufi 2025; Skaburskis 2006; City of Toronto documents) are referenced in the article’s bibliography.</p><p class="muted">Supplementary explanations and the Northbridge scenario were written for this course and are labelled as such.</p></div>'}
+]}
+]};
+
+var GLOSSARY=[
+{t:'housing affordability',d:'The relationship between housing costs and household income; housing is affordable when its cost leaves enough income for other basic needs.',ctx:'In the article: CMHC wants to restore affordability to pre-pandemic levels (¶1).'},
+{t:'housing shortage',d:'A situation in which too few dwellings are available to meet needs or demand.',ctx:'In the article: BCH promised a “bold solution to the housing shortage” (¶1).'},
+{t:'housing insecurity',d:'Lacking stable, adequate housing or being at risk of losing it (precarious tenure, arrears, overcrowding).'},
+{t:'homeownership',d:'Owning the dwelling you live in; a major channel of wealth accumulation.',ctx:'In the article: Black households are underrepresented in homeownership rates (¶2).'},
+{t:'rental discrimination',d:'Unequal treatment of rental applicants or tenants by landlords, for example on the basis of race.',ctx:'In the article: measured by a Toronto field experiment (Akaabre et al. 2025, ¶4).'},
+{t:'residential segregation',d:'The uneven distribution of social or racial groups across the neighbourhoods of a city.'},
+{t:'displacement',d:'The forced or pressured departure of residents from their home or neighbourhood, because of evictions, rising costs or redevelopment.',ctx:'In the article: Black communities face displacement pressures (¶2).'},
+{t:'eviction',d:'The legal process by which a landlord removes a tenant from a dwelling. An eviction filing is the application a landlord submits to start it.',ctx:'In the article: eviction filings in Black-majority neighbourhoods (¶4); Bill 60 (¶8).'},
+{t:'own-use eviction',d:'An eviction in which a landlord ends a tenancy so that the owner or a family member can live in the unit.',ctx:'In the article: Bill 60 removes compensation requirements for “own-use” evictions (¶8).'},
+{t:'financialized landlords',d:'Corporate owners, such as investment funds, that treat rental housing mainly as a financial asset generating returns for investors.',ctx:'In the article: they dominate the rental market in Black-majority neighbourhoods (¶4).'},
+{t:'non-market housing',d:'Housing provided by public bodies, non-profits or co-operatives, with rents not set to maximise profit.',ctx:'In the article: BCH’s mandate prioritises non-market and community housing (¶10).'},
+{t:'social housing',d:'Publicly subsidised rental housing allocated according to need, usually at below-market rents.',ctx:'In the article: Black residents are overrepresented in social housing (¶6).'},
+{t:'community land trust',d:'A non-profit organisation that owns land on behalf of a community and keeps the housing on it permanently affordable.',ctx:'In the article: recommendation R3.'},
+{t:'urban redevelopment',d:'The rebuilding or transformation of existing urban areas, often to increase density or value.',ctx:'In the article: who “bears the costs of redevelopment” (¶5).'},
+{t:'racial equity',d:'A situation in which race no longer predicts outcomes such as housing, wealth or health; it requires targeted measures to remove barriers.',ctx:'In the article: “treat racial equity as a measure of success” (¶9).'},
+{t:'tenant protection',d:'Laws and rules that secure renters’ tenure: limits on eviction, rights of appeal, compensation, notice periods.',ctx:'In the article: weakened by Bill 60 (¶8); recommendation R2.'},
+{t:'tenure (security of)',d:'The legal right to occupy a dwelling and the degree of protection against losing it.',ctx:'In the article: subsidies “without securing tenure” (¶8).'},
+{t:'spatial inequalities',d:'The unequal distribution of resources, opportunities and risks across places.'},
+{t:'urban governance',d:'The ways in which public authorities at several levels, private actors and civil society make and implement decisions about cities.'},
+{t:'housing justice',d:'The principle that everyone should have secure, decent and affordable housing, and that the burdens and benefits of housing systems should be fairly shared.',ctx:'In the article: research at the Housing Justice Lab (¶2).'},
+{t:'core housing need',d:'A CMHC indicator: a household whose housing is unaffordable, inadequate or too small, and that cannot afford acceptable alternative housing in its area.',ctx:'In the article: BCH aims to reduce core housing need (¶9).'},
+{t:'housing starts',d:'The number of new dwellings on which construction begins in a given period; a basic indicator of supply.',ctx:'In the article: 250,000 → 430,000–480,000 a year by 2035 (¶1).'},
+{t:'filtering',d:'The process by which older, cheaper units become available to lower-income households as higher-income households move into newer units.',ctx:'In the article: “too slow and inattentive to rising income inequality” (R2).'},
+{t:'race-based data',d:'Statistics broken down by racial group, used to detect and monitor inequalities.',ctx:'In the article: a core CABR tool (¶3, ¶7); recommendation R1.'},
+{t:'anti-racism impact assessment',d:'An evaluation of how a policy or project is likely to affect racialized groups, carried out before and during implementation.',ctx:'In the article: one of CABR’s tools (¶7).'},
+{t:'public accountability',d:'The obligation of public bodies to report on their actions and results so that citizens and other institutions can scrutinise them.',ctx:'In the article: ¶7 and R1.'},
+{t:'red tape',d:'Excessive rules and administrative procedures that slow down decisions.',ctx:'In the article: Bill 60 aims to cut red tape (¶8).'},
+{t:'Build Canada Homes (BCH)',d:'The federal housing agency launched in 2025 to expand affordable and non-market supply, finance builders and work with partners.',ctx:'In the article: ¶1, ¶5, ¶10.'},
+{t:'CABR',d:'Confronting Anti-Black Racism: Toronto’s Five-Year Action Plan, adopted in 2017 (22 recommendations, 80 actions, 5 priority areas).',ctx:'In the article: ¶3, ¶7.'},
+{t:'CMHC',d:'Canada Mortgage and Housing Corporation, the federal housing agency, which publishes data and research.',ctx:'In the article: source of the supply target (¶1).'}
+];
+
+</script>
+<script>
+(function(){
+'use strict';
+var STORE='bch-esp-course-v1';
+var storageOK=true;
+function fresh(){return {v:1,ex:{},open:{},chk:{},visited:{},started:new Date().toISOString()};}
+function load(){
+  try{var r=localStorage.getItem(STORE);if(r){var o=JSON.parse(r);if(o&&o.v===1){o.ex=o.ex||{};o.open=o.open||{};o.chk=o.chk||{};o.visited=o.visited||{};return o;}}}
+  catch(e){storageOK=false;}
+  return fresh();
+}
+var S=load();
+try{localStorage.setItem(STORE+'-t','1');localStorage.removeItem(STORE+'-t');}catch(e){storageOK=false;}
+var saveTimer=null;
+function save(now){
+  clearTimeout(saveTimer);
+  var w=function(){try{localStorage.setItem(STORE,JSON.stringify(S));}catch(e){storageOK=false;showStoreWarn();}};
+  if(now) w(); else saveTimer=setTimeout(w,250);
+}
+window.addEventListener('pagehide',function(){save(true);});
+
+var SECTIONS=COURSE.sections;
+var EX={};
+SECTIONS.forEach(function(s,si){s.blocks.forEach(function(b){if(b.id){if(EX[b.id])console.warn('Duplicate id',b.id);EX[b.id]={def:b,sec:si};}});});
+var AUTO=['mcq','tf','select','gap'];
+var $=function(sel,root){return (root||document).querySelector(sel);};
+var $$=function(sel,root){return Array.prototype.slice.call((root||document).querySelectorAll(sel));};
+function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+function strip(h){var d=document.createElement('div');d.innerHTML=h;return (d.textContent||'').replace(/\s+/g,' ').trim();}
+
+function st(id){return S.ex[id]||(S.ex[id]={a:{},checked:false,revealed:false,done:false,first:null,best:null,attempts:0});}
+function itemsOf(d){return d.type==='gap'?d.answers:d.items;}
+function norm(s){return String(s||'').trim().toLowerCase().replace(/[‘’]/g,"'").replace(/\s+/g,' ').replace(/[.,;]$/,'');}
+function has(v){return v!==undefined&&v!==null&&v!=='';}
+function isRight(d,i,v){
+  if(!has(v))return false;
+  switch(d.type){
+    case 'mcq':return String(v)===String(d.items[i].a);
+    case 'tf':return v===(d.items[i].a?'T':'F');
+    case 'select':return String(v)===String(d.items[i].a);
+    case 'gap':return d.answers[i].some(function(x){return norm(x)===norm(v);});
+  }return false;
+}
+function answerText(d,i){
+  switch(d.type){
+    case 'mcq':return strip(d.items[i].o[d.items[i].a]);
+    case 'tf':return d.items[i].a?'True':'False';
+    case 'select':return strip(d.options[d.items[i].a]);
+    case 'gap':return d.answers[i][0];
+  }
+}
+function score(d,s){var n=itemsOf(d).length,c=0;for(var i=0;i<n;i++)if(isRight(d,i,s.a[i]))c++;return {c:c,n:n};}
+function words(t){var m=String(t||'').trim().match(/\S+/g);return m?m.length:0;}
+function fieldsOf(d){return d.fields||[{k:'main',label:'',words:d.words||'',rows:d.rows||6,ph:d.ph}];}
+function openWords(d){return fieldsOf(d).reduce(function(a,f){return a+words(S.open[d.id+'.'+f.k]);},0);}
+function unlockAt(d){return d.unlock!=null?d.unlock:25;}
+function isDone(id){
+  var d=EX[id].def;
+  if(AUTO.indexOf(d.type)>=0){var s=st(id);return !!(s.done||s.revealed);}
+  if(d.type==='open')return openWords(d)>=unlockAt(d);
+  if(d.type==='checklist'){var c=S.chk[id]||{};return Object.keys(c).some(function(k){return c[k];});}
+  return true;
+}
+function secIds(si){return SECTIONS[si].blocks.filter(function(b){return b.id;}).map(function(b){return b.id;});}
+function secStatus(si){
+  var ids=secIds(si);
+  if(!ids.length)return S.visited[si]?'done':'none';
+  var n=ids.filter(isDone).length;
+  if(n===ids.length)return 'done';
+  return (n>0||S.visited[si])?'started':'none';
+}
+function allIds(){return Object.keys(EX);}
+
+/* ---------- Rendering ---------- */
+var KIND={mcq:'Multiple choice',tf:'True / False + justification',gap:'Gap-fill'};
+function head(b,kind){
+  return '<header class="ex-h"><div class="ex-meta">'+(b.num?'<span class="ex-num">Activity '+b.num+'</span>':'')+
+  '<span class="tag">'+kind+'</span>'+(b.mins?'<span class="time">≈ '+b.mins+' min</span>':'')+
+  '<span class="done-flag" data-flag="'+b.id+'"></span></div><h3>'+b.title+'</h3>'+
+  (b.intro?'<div class="ex-intro">'+b.intro+'</div>':'')+'</header>';
+}
+function hintHtml(h){return h?'<div class="hint"><strong>Hint:</strong> '+h+'</div>':'';}
+function ctrlAuto(){
+  return '<div class="ex-ctrl"><button type="button" class="primary" data-act="check">Check answers</button>'+
+  '<button type="button" data-act="hint">Show hints</button>'+
+  '<button type="button" data-act="reveal" disabled title="Check your answers once to unlock the correction">Reveal correction</button>'+
+  '<button type="button" data-act="retry">Try again</button></div><div class="ex-result" aria-live="polite"></div>';
+}
+function renderAuto(b){
+  var body='',kind=b.kind||KIND[b.type]||'Matching';
+  if(b.type==='mcq'){
+    body='<ol class="items">'+b.items.map(function(it,i){
+      return '<li class="item" data-i="'+i+'"><p class="q">'+it.q+'</p><div class="opts">'+
+        it.o.map(function(o,j){return '<label class="opt"><input type="radio" name="'+b.id+'-'+i+'" value="'+j+'" data-ex="'+b.id+'" data-i="'+i+'"><span>'+o+'</span></label>';}).join('')+
+        '</div>'+hintHtml(it.hint)+'<div class="fb"></div></li>';}).join('')+'</ol>';
+  }else if(b.type==='tf'){
+    body='<ol class="items">'+b.items.map(function(it,i){
+      return '<li class="item" data-i="'+i+'"><p class="q">'+it.s+'</p><div class="tf-row">'+
+        ['T','F'].map(function(v){return '<label class="opt"><input type="radio" name="'+b.id+'-'+i+'" value="'+v+'" data-ex="'+b.id+'" data-i="'+i+'"><span>'+(v==='T'?'True':'False')+'</span></label>';}).join('')+
+        '</div><label class="muted" style="font-size:.8rem;display:block;margin-top:.35rem" for="j-'+b.id+'-'+i+'">Justify with evidence from the article (paragraph number + short quotation or paraphrase):</label>'+
+        '<textarea class="jus" id="j-'+b.id+'-'+i+'" rows="2" data-open="'+b.id+'.j'+i+'" placeholder="e.g. ¶3: …"></textarea>'+
+        hintHtml(it.hint)+'<div class="fb"></div></li>';}).join('')+'</ol>';
+  }else if(b.type==='select'){
+    var opts='<option value="">— choose —</option>'+b.options.map(function(o,j){return '<option value="'+j+'">'+esc(strip(o))+'</option>';}).join('');
+    body='<ol class="items">'+b.items.map(function(it,i){
+      return '<li class="item" data-i="'+i+'"><div class="selrow"><p class="q" id="q-'+b.id+'-'+i+'">'+it.p+'</p>'+
+        '<select data-ex="'+b.id+'" data-i="'+i+'" aria-labelledby="q-'+b.id+'-'+i+'">'+opts+'</select></div>'+
+        hintHtml(it.hint)+'<div class="fb"></div></li>';}).join('')+'</ol>';
+  }else if(b.type==='gap'){
+    var n=0;
+    var txt=b.text.replace(/\[\[(\d+)\]\]/g,function(m,k){var i=+k-1;n++;return '<span class="gapw"><input class="gap" type="text" data-ex="'+b.id+'" data-i="'+i+'" aria-label="Gap '+k+'" autocomplete="off" autocapitalize="off" spellcheck="false"><span class="gapn">'+k+'</span></span>';});
+    body=(b.bank?'<div class="bank"><b>Word bank</b>'+b.bank.map(function(w){return '<span class="chip">'+w+'</span>';}).join('')+'</div>':'')+
+      '<p class="gaptext">'+txt+'</p><ol class="gapfb">'+b.answers.map(function(a,i){
+        return '<li class="item" data-i="'+i+'"><span class="gl">Gap '+(i+1)+'</span>'+hintHtml(b.hints&&b.hints[i])+'<div class="fb"></div></li>';}).join('')+'</ol>';
+  }
+  return '<section class="ex auto" id="ex-'+b.id+'" data-ex="'+b.id+'">'+head(b,kind)+body+ctrlAuto()+'</section>';
+}
+function renderOpen(b){
+  var f=fieldsOf(b);
+  var crit=b.criteria?'<ul class="checks">'+b.criteria.map(function(c,i){return '<li><label><input type="checkbox" data-chk="'+b.id+'" data-k="'+i+'"><span>'+c+'</span></label></li>';}).join('')+'</ul>':'';
+  return '<section class="ex open" id="ex-'+b.id+'" data-ex="'+b.id+'">'+head(b,b.kind||'Open response')+
+    (b.prompt?'<div class="prompt">'+b.prompt+'</div>':'')+
+    f.map(function(x){return '<div class="field">'+(x.label?'<label for="t-'+b.id+'-'+x.k+'">'+x.label+(x.words?' <span class="wg">('+x.words+')</span>':'')+'</label>':'<label class="wg" for="t-'+b.id+'-'+x.k+'">Your answer'+(x.words?' ('+x.words+')':'')+'</label>')+
+      (x.help?'<p class="fhelp">'+x.help+'</p>':'')+
+      '<textarea id="t-'+b.id+'-'+x.k+'" data-open="'+b.id+'.'+x.k+'" rows="'+(x.rows||5)+'" placeholder="'+esc(x.ph||'Write your answer here…')+'"></textarea></div>';}).join('')+
+    '<div class="wc" data-wc="'+b.id+'"></div>'+
+    (b.areas?'<div class="areas"><strong>Tick the areas your proposal addresses (at least three):</strong><ul class="checks">'+b.areas.map(function(a,i){return '<li><label><input type="checkbox" data-chk="'+b.id+'-areas" data-k="'+i+'"><span>'+a+'</span></label></li>';}).join('')+'</ul><div class="muted" data-areas="'+b.id+'" style="font-size:.84rem"></div></div>':'')+
+    '<div class="ex-ctrl"><button type="button" data-act="criteria">Assessment criteria &amp; self-check</button>'+
+    '<button type="button" class="primary" data-act="model">Reveal model answer</button></div><div class="ex-result" aria-live="polite"></div>'+
+    '<div class="criteria" hidden><h4>Assessment criteria — tick what your answer does</h4>'+(b.critIntro||'')+crit+(b.rubric||'')+'</div>'+
+    '<div class="model" hidden><h4>'+(b.modelTitle||'Model answer')+'</h4>'+(b.model||'')+'</div></section>';
+}
+function renderChecklist(b){
+  return '<section class="ex checklist" id="ex-'+b.id+'" data-ex="'+b.id+'">'+head(b,b.kind||'Self-assessment')+
+    '<ul class="checks">'+b.items.map(function(t,i){return '<li><label><input type="checkbox" data-chk="'+b.id+'" data-k="'+i+'"><span>'+t+'</span></label></li>';}).join('')+'</ul></section>';
+}
+function renderBlock(b){
+  switch(b.type){
+    case 'html':return b.html;
+    case 'mcq':case 'tf':case 'select':case 'gap':return renderAuto(b);
+    case 'open':return renderOpen(b);
+    case 'checklist':return renderChecklist(b);
+    case 'summary':return '<div id="summary"></div>';
+  }return '';
+}
+
+/* ---------- Painting state ---------- */
+function paintAuto(id){
+  var root=document.getElementById('ex-'+id);if(!root)return;
+  var d=EX[id].def,s=st(id),n=itemsOf(d).length;
+  $$('[data-i]',root).forEach(function(el){
+    if(el.matches('input[type=radio]'))el.checked=String(s.a[el.getAttribute('data-i')])===el.value;
+    else if(el.matches('select,input.gap')){var v=s.a[el.getAttribute('data-i')];v=has(v)?String(v):'';if(el.value!==v)el.value=v;}
+  });
+  $$('textarea[data-open]',root).forEach(function(t){var v=S.open[t.getAttribute('data-open')]||'';if(t.value!==v)t.value=v;});
+  var shown=s.checked||s.revealed;
+  for(var i=0;i<n;i++){
+    var item=$('.item[data-i="'+i+'"]',root),fb=item&&$('.fb',item),ok=isRight(d,i,s.a[i]);
+    var gin=$('input.gap[data-i="'+i+'"]',root);
+    [item,gin].forEach(function(el){if(!el)return;el.classList.remove('ok','bad');if(shown)el.classList.add(ok?'ok':'bad');});
+    if(item&&d.type==='gap')item.classList.toggle('vis',shown);
+    if(!fb)continue;
+    var it=d.type==='gap'?{}:d.items[i];
+    var ex=(d.type==='gap'?(d.ex&&d.ex[i]):it.ex)||'';
+    var hint=d.type==='gap'?(d.hints&&d.hints[i]):it.hint;
+    if(s.revealed){fb.className='fb show '+(ok?'ok':'rev');fb.innerHTML='<strong>'+(ok?'✓ Correct.':'Correct answer: '+esc(answerText(d,i))+'.')+'</strong> '+ex;}
+    else if(s.checked){
+      if(ok){fb.className='fb show ok';fb.innerHTML='<strong>✓ Correct.</strong> '+ex;}
+      else{fb.className='fb show bad';fb.innerHTML='<strong>✗ Not yet.</strong> '+(hint?'Hint: '+hint:'Re-read the relevant paragraph and try again.');}
+    }else{fb.className='fb';fb.innerHTML='';}
+  }
+  var rev=$('[data-act=reveal]',root);rev.disabled=!(s.done||s.revealed);
+  rev.title=rev.disabled?'Check your answers once to unlock the correction':'';
+  var res=$('.ex-result',root);res.classList.remove('warn');
+  if(shown){var sc=score(d,s);res.innerHTML='Score: <strong>'+sc.c+' / '+sc.n+'</strong>'+(s.first?' · first attempt: '+s.first.c+' / '+s.first.n:'')+(s.revealed?' · correction revealed':'');}
+  else if(s.first){res.innerHTML='First attempt: '+s.first.c+' / '+s.first.n+(s.best?' · best: '+s.best.c+' / '+s.best.n:'')+'. Change your answers and check again.';}
+  else res.innerHTML='';
+  flag(id);
+}
+function paintOpen(id){
+  var root=document.getElementById('ex-'+id);if(!root)return;
+  var d=EX[id].def,s=st(id);
+  $$('textarea[data-open]',root).forEach(function(t){var v=S.open[t.getAttribute('data-open')]||'';if(t.value!==v)t.value=v;});
+  paintChecks(root);
+  updateOpenMeta(id);
+  $('.model',root).hidden=!s.revealed;
+  flag(id);
+}
+function updateOpenMeta(id){
+  var root=document.getElementById('ex-'+id);if(!root)return;
+  var d=EX[id].def,s=st(id),w=openWords(d),u=unlockAt(d);
+  var wc=$('[data-wc]',root);
+  wc.textContent='Words written: '+w+(d.target?' · target: '+d.target:'')+(w<u?' · write at least '+u+' words to unlock the model answer':'');
+  var b=$('[data-act=model]',root);
+  b.disabled=w<u&&!s.revealed;
+  b.textContent=s.revealed?'Hide model answer':'Reveal model answer';
+  if(d.areas){var c=S.chk[id+'-areas']||{},k=Object.keys(c).filter(function(x){return c[x];}).length,el=$('[data-areas]',root);el.textContent=k+' area'+(k===1?'':'s')+' selected'+(k<3?' — choose at least three.':' ✓');}
+}
+function paintChecks(root){$$('input[data-chk]',root).forEach(function(c){var g=S.chk[c.getAttribute('data-chk')]||{};c.checked=!!g[c.getAttribute('data-k')];});}
+function flag(id){var f=$('[data-flag="'+id+'"]');if(f)f.textContent=isDone(id)?'✓ Completed':'';}
+function paintAll(){
+  $$('section.ex').forEach(function(sec){var id=sec.getAttribute('data-ex'),d=EX[id].def;
+    if(AUTO.indexOf(d.type)>=0)paintAuto(id);else if(d.type==='open')paintOpen(id);else{paintChecks(sec);flag(id);}});
+  if($('#summary'))renderSummary();
+}
+
+/* ---------- Navigation & progress ---------- */
+var cur=0;
+function renderNav(){
+  $('#nav').innerHTML=SECTIONS.map(function(s,i){
+    return '<li><a href="#s'+i+'" class="'+(i===cur?'cur':'')+'" '+(i===cur?'aria-current="page"':'')+'><span class="nnum">'+(i===0?'·':i)+'</span><span>'+s.navTitle+'</span><span class="nst '+secStatus(i)+'" aria-label="'+({none:'not started',started:'in progress',done:'completed'}[secStatus(i)])+'"></span><span class="nmeta">'+(s.mins?s.mins+' min':'Start here')+'</span></a></li>';
+  }).join('');
+}
+function updateProgress(){
+  var ids=allIds(),done=ids.filter(isDone).length,p=ids.length?Math.round(done/ids.length*100):0;
+  $('#topBar').style.width=p+'%';$('#topPct').textContent=p+'% complete';
+  var sp=$('#secProg');
+  if(sp){var si=secIds(cur),sd=si.filter(isDone).length;sp.innerHTML=si.length?'<div class="bar"><i style="width:'+Math.round(sd/si.length*100)+'%"></i></div><span>'+sd+' of '+si.length+' activities completed</span>':'';}
+  renderNav();
+  allIds().forEach(flag);
+  if($('#summary'))renderSummary();
+}
+function show(i,focus){
+  if(isNaN(i)||i<0||i>=SECTIONS.length)i=0;
+  cur=i;S.visited[i]=true;S.last=i;save();
+  var s=SECTIONS[i];
+  var h='<header class="sec-h"><div class="kicker">'+(i===0?'Welcome':'Part '+i+(s.mins?' · '+s.mins+' minutes':''))+'</div><h1>'+s.title+'</h1>'+(s.lead?'<p class="lead">'+s.lead+'</p>':'')+
+    (s.objectives?'<ul class="objs">'+s.objectives.map(function(o){return '<li>'+o+'</li>';}).join('')+'</ul>':'')+
+    '<div class="sec-prog" id="secProg"></div></header>';
+  h+=s.blocks.map(renderBlock).join('');
+  h+='<nav class="navbtns" aria-label="Section navigation">'+(i>0?'<a href="#s'+(i-1)+'">← '+SECTIONS[i-1].navTitle+'</a>':'<span></span>')+
+     (i<SECTIONS.length-1?'<a class="primary" href="#s'+(i+1)+'">'+(i===0?'Start Part 1':'Next: '+SECTIONS[i+1].navTitle)+' →</a>':'')+'</nav>';
+  $('#page').innerHTML=h;
+  if(resetNote&&i===0){resetNote=false;var n=document.createElement('div');n.className='note';n.setAttribute('role','status');n.innerHTML='<strong>The course has been reset.</strong> All answers and scores have been deleted from this browser.';$('#page').insertBefore(n,$('#page').firstChild);}
+  paintAll();updateProgress();
+  closeSide();
+  window.scrollTo(0,0);
+  if(focus)$('#main').focus({preventScroll:true});
+  document.title=(i===0?'':'Part '+i+': ')+strip(s.navTitle)+' | Housing Justice in Canada';
+}
+function route(){var m=/^#s(\d+)$/.exec(location.hash);show(m?parseInt(m[1],10):0,!!m);}
+window.addEventListener('hashchange',route);
+
+/* ---------- Events ---------- */
+var page=$('#page');
+page.addEventListener('change',function(e){
+  var t=e.target,id=t.getAttribute('data-ex');
+  if(id&&(t.matches('input[type=radio]')||t.matches('select'))){
+    var s=st(id);s.a[t.getAttribute('data-i')]=t.value;if(s.checked&&!s.revealed)s.checked=false;save();paintAuto(id);return;
+  }
+  if(t.matches('input[data-chk]')){
+    var g=t.getAttribute('data-chk');S.chk[g]=S.chk[g]||{};S.chk[g][t.getAttribute('data-k')]=t.checked;save();
+    var exid=g.replace(/-areas$/,'');if(EX[exid]&&EX[exid].def.type==='open')updateOpenMeta(exid);
+    updateProgress();
+  }
+});
+page.addEventListener('input',function(e){
+  var t=e.target;
+  if(t.matches('input.gap')){var id=t.getAttribute('data-ex'),s=st(id);s.a[t.getAttribute('data-i')]=t.value;
+    if(s.checked&&!s.revealed){s.checked=false;paintAuto(id);}save();return;}
+  if(t.matches('textarea[data-open]')){
+    var k=t.getAttribute('data-open');S.open[k]=t.value;save();
+    var exid=k.split('.')[0];if(EX[exid]&&EX[exid].def.type==='open'){var before=isDone(exid);updateOpenMeta(exid);if(isDone(exid)!==before)updateProgress();}
+  }
+});
+page.addEventListener('click',function(e){
+  var b=e.target.closest('[data-act]');if(!b)return;
+  var root=b.closest('section.ex'),id=root.getAttribute('data-ex'),d=EX[id].def,s=st(id),act=b.getAttribute('data-act');
+  if(act==='check'){
+    var n=itemsOf(d).length,missing=0;for(var i=0;i<n;i++)if(!has(s.a[i])||String(s.a[i]).trim()==='')missing++;
+    if(missing){var r=$('.ex-result',root);r.classList.add('warn');r.textContent='Please answer every item before checking ('+missing+' still empty).';return;}
+    var sc=score(d,s);s.checked=true;s.done=true;s.attempts++;
+    if(!s.first)s.first=sc;if(!s.revealed&&(!s.best||sc.c>s.best.c))s.best=sc;
+    save();paintAuto(id);updateProgress();
+  }else if(act==='hint'){
+    var on=root.classList.toggle('hints-on');b.textContent=on?'Hide hints':'Show hints';
+  }else if(act==='reveal'){
+    if(!s.done&&!s.revealed)return;
+    s.revealed=true;save();paintAuto(id);updateProgress();
+  }else if(act==='retry'){
+    s.a={};s.checked=false;s.revealed=false;save();paintAuto(id);
+    var first=$('input,select',root);if(first)first.focus();
+  }else if(act==='criteria'){
+    var c=$('.criteria',root);c.hidden=!c.hidden;
+  }else if(act==='model'){
+    if(!s.revealed&&openWords(d)<unlockAt(d))return;
+    s.revealed=!s.revealed;save();paintOpen(id);
+    if(s.revealed)$('.model',root).scrollIntoView({behavior:'smooth',block:'nearest'});
+  }
+});
+page.addEventListener('click',function(e){var a=e.target.closest('[data-go]');if(a){e.preventDefault();location.hash='#s'+a.getAttribute('data-go');}});
+
+/* ---------- Summary, export, reset ---------- */
+function renderSummary(){
+  var el=$('#summary');if(!el)return;
+  var tc=0,tn=0,fc=0,openDone=0,openTot=0,rows='';
+  SECTIONS.forEach(function(s,si){
+    if(si===0)return;
+    var c=0,n=0,f=0,od=0,ot=0;
+    secIds(si).forEach(function(id){var d=EX[id].def,x=st(id);
+      if(AUTO.indexOf(d.type)>=0){var k=itemsOf(d).length;n+=k;c+=x.best?x.best.c:0;f+=x.first?x.first.c:0;}
+      else{ot++;if(isDone(id))od++;}});
+    tc+=c;tn+=n;fc+=f;openDone+=od;openTot+=ot;
+    rows+='<tr><td>'+si+'. '+s.navTitle+'</td><td>'+(n?f+' / '+n:'—')+'</td><td>'+(n?c+' / '+n:'—')+'</td><td>'+(ot?od+' / '+ot:'—')+'</td><td>'+({none:'Not started',started:'In progress',done:'✓ Complete'}[secStatus(si)])+'</td></tr>';
+  });
+  var pct=tn?Math.round(tc/tn*100):0;
+  el.innerHTML='<div class="sum-total"><div class="tile"><b>'+tc+' / '+tn+'</b><span>Best score, auto-corrected items ('+pct+'%)</span></div>'+
+    '<div class="tile"><b>'+fc+' / '+tn+'</b><span>First-attempt score</span></div>'+
+    '<div class="tile"><b>'+openDone+' / '+openTot+'</b><span>Open tasks &amp; self-checks completed</span></div>'+
+    '<div class="tile"><b>'+Math.round(allIds().filter(isDone).length/allIds().length*100)+'%</b><span>Course completed</span></div></div>'+
+    '<div class="tw"><table class="t"><thead><tr><th>Section</th><th>First attempt</th><th>Best</th><th>Open tasks</th><th>Status</th></tr></thead><tbody>'+rows+'</tbody></table></div>'+
+    '<p class="muted" style="font-size:.86rem">Scores count only the automatically corrected items. Your open answers (paragraphs, memo) are not graded by the website; compare them with the model answers and criteria, or hand them in to your lecturer.</p>'+
+    '<div class="ex-ctrl"><button type="button" class="btn primary" id="dl2">Download my answers (.txt)</button><button type="button" class="btn" id="pr">Print this page</button></div>';
+  $('#dl2').onclick=download;$('#pr').onclick=function(){window.print();};
+}
+function download(){
+  var L=[],line='------------------------------------------------------------';
+  L.push('BUILDING MORE, BUILDING FAIRLY? HOUSING JUSTICE IN CANADA');
+  L.push('ESP course · L3 Geography & Urban Planning · my answers');
+  L.push('Exported: '+new Date().toLocaleString());L.push('');
+  SECTIONS.forEach(function(s,si){
+    var ids=secIds(si);if(!ids.length)return;
+    L.push(line);L.push((si?'PART '+si+': ':'')+strip(s.title).toUpperCase());L.push(line);
+    ids.forEach(function(id){var d=EX[id].def,x=st(id);
+      L.push('');L.push('Activity '+(d.num||'')+' — '+strip(d.title));
+      if(AUTO.indexOf(d.type)>=0){
+        var sc=score(d,x);L.push('Score now: '+sc.c+'/'+sc.n+(x.first?' | first attempt: '+x.first.c+'/'+x.first.n:'')+(x.revealed?' | correction revealed':''));
+        itemsOf(d).forEach(function(_,i){
+          var v=x.a[i],shownV=!has(v)?'(no answer)':d.type==='mcq'?strip(d.items[i].o[v]||''):d.type==='tf'?(v==='T'?'True':'False'):d.type==='select'?strip(d.options[v]||''):v;
+          var label=d.type==='mcq'?strip(d.items[i].q):d.type==='tf'?strip(d.items[i].s):d.type==='select'?strip(d.items[i].p):'Gap '+(i+1);
+          L.push('  '+(i+1)+'. '+label);L.push('     → '+shownV+(isRight(d,i,v)?'  [correct]':has(v)?'  [incorrect]':''));
+          if(d.type==='tf'&&S.open[id+'.j'+i])L.push('     Justification: '+S.open[id+'.j'+i]);
+        });
+      }else if(d.type==='open'){
+        fieldsOf(d).forEach(function(f){if(f.label)L.push('  ['+strip(f.label)+']');L.push('  '+(S.open[id+'.'+f.k]||'(not answered)').replace(/\n/g,'\n  '));});
+        if(d.areas){var c=S.chk[id+'-areas']||{};L.push('  Areas addressed: '+d.areas.filter(function(_,i){return c[i];}).map(strip).join('; '));}
+        L.push('  Words: '+openWords(d));
+      }else if(d.type==='checklist'){var g=S.chk[id]||{};d.items.forEach(function(t,i){L.push('  ['+(g[i]?'x':' ')+'] '+strip(t));});}
+    });L.push('');
+  });
+  var blob=new Blob([L.join('\n')],{type:'text/plain;charset=utf-8'});
+  var url=URL.createObjectURL(blob),a=document.createElement('a');
+  a.href=url;a.download='housing-justice-canada-my-answers.txt';document.body.appendChild(a);a.click();
+  setTimeout(function(){document.body.removeChild(a);URL.revokeObjectURL(url);},1500);
+}
+$('#dlBtn').onclick=download;
+var resetNote=false;
+function doReset(){
+  clearTimeout(saveTimer);
+  try{localStorage.removeItem(STORE);}catch(e){}
+  S=fresh();save(true);
+  $('#resetBox').hidden=true;$('#resetBtn').hidden=false;
+  resetNote=true;
+  var h=location.hash;
+  if(h&&h!=='#s0'){try{location.hash='#s0';return;}catch(e){}}
+  show(0,true);
+}
+$('#resetBtn').onclick=function(){$('#resetBox').hidden=false;this.hidden=true;$('#resetNo').focus();};
+$('#resetNo').onclick=function(){$('#resetBox').hidden=true;$('#resetBtn').hidden=false;$('#resetBtn').focus();};
+$('#resetYes').onclick=doReset;
+
+/* ---------- Glossary & side menu ---------- */
+function renderGloss(q){
+  q=norm(q||'');
+  var list=GLOSSARY.slice().sort(function(a,b){return a.t.localeCompare(b.t);}).filter(function(g){return !q||norm(g.t+' '+g.d).indexOf(q)>=0;});
+  $('#glossList').innerHTML=list.length?'<dl>'+list.map(function(g){return '<dt>'+g.t+'</dt><dd>'+g.d+(g.ctx?'<span class="ctx">'+g.ctx+'</span>':'')+'</dd>';}).join('')+'</dl>':'<p class="muted">No term found.</p>';
+}
+function openGloss(){var d=$('#glossary');d.classList.add('open');d.setAttribute('aria-hidden','false');$('#glossBtn').setAttribute('aria-expanded','true');$('#scrim').classList.add('on');setTimeout(function(){$('#glossQ').focus();},50);}
+function closeGloss(){var d=$('#glossary');d.classList.remove('open');d.setAttribute('aria-hidden','true');$('#glossBtn').setAttribute('aria-expanded','false');if(!$('#side').classList.contains('open'))$('#scrim').classList.remove('on');}
+function closeSide(){$('#side').classList.remove('open');$('#menuBtn').setAttribute('aria-expanded','false');if(!$('#glossary').classList.contains('open'))$('#scrim').classList.remove('on');}
+$('#glossBtn').onclick=openGloss;$('#glossClose').onclick=closeGloss;
+$('#glossQ').addEventListener('input',function(){renderGloss(this.value);});
+$('#menuBtn').onclick=function(){var o=$('#side').classList.toggle('open');this.setAttribute('aria-expanded',o?'true':'false');$('#scrim').classList.toggle('on',o);};
+$('#scrim').onclick=function(){closeGloss();closeSide();};
+document.addEventListener('keydown',function(e){if(e.key==='Escape'){closeGloss();closeSide();}});
+document.addEventListener('click',function(e){var g=e.target.closest('[data-gloss]');if(g){e.preventDefault();$('#glossQ').value=g.getAttribute('data-gloss');renderGloss(g.getAttribute('data-gloss'));openGloss();}});
+
+function showStoreWarn(){if(!storageOK)$('#storeWarn').innerHTML='<div class="store-warn">Your browser is blocking local storage (private mode?). Your answers will not be saved when you close the page. Use “Download my answers” before leaving.</div>';}
+showStoreWarn();
+renderGloss('');
+if(!location.hash&&typeof S.last==='number'&&S.last>0)location.hash='#s'+S.last;else route();
+})();
+</script>
+</body>
+</html>
